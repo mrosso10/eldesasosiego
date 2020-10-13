@@ -127,3 +127,6 @@ gem "recaptcha"
 gem 'browser', '2.0.3'
 
 gem 'rollbar'
+
+# Desasosiego
+gem 'twitter'
