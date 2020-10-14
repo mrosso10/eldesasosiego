@@ -1,0 +1,13 @@
+#wrapper #content-wrapper {
+  overflow-x: visible!important;
+}
+#accordionSidebar {
+  position: sticky;
+  top: 0;
+  height: 100%;
+}
+ol.breadcrumb {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}

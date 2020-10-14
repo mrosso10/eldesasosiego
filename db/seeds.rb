@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata))
+
+
+['mrosso10@gmail.com','luciano.santobuono@gmail.com',
+ 'lucasrossi90@gmail.com','ignacio.coluccio@gmail.com'].each do |mail|
+  unless User.exists?(email: mail)
+    User.create(email: mail, password: 'admin123', password_confirmation: 'admin123', profiles: ["0", "1"], 
+                desarrollador: true)
+  end
+end
+

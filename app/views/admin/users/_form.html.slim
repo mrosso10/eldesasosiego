@@ -1,0 +1,18 @@
+.form-wrapper-xl
+  = pg_form_for([:admin, @user], html: { class: 'xform-horizontal' }) do |f|
+    = render partial: 'common/error_messages', locals: { object: @user }
+    = f.input :name, input_html: { class: 'pg-input-lg', autocomplete: 'new-password'  }
+    = f.input :email, input_html: { class: 'pg-input-lg', autocomplete: 'new-password' }
+    = f.input :password, input_html: { class: 'pg-input-lg', autocomplete: 'new-password' }
+    = f.input :active, as: :boolean
+
+    .card
+      .card-header
+        h4 Perfiles
+      .card-body
+        - User.profiles.values.each do |profile|
+          .form-group
+            = f.check_box(:profiles, { multiple: true, class: 'i-checks', checked: @user.send("#{profile}?") }, [profile], nil)
+            = f.label profile
+
+    = f.button :submit, class: "btn btn-primary"

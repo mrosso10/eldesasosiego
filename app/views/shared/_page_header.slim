@@ -1,0 +1,15 @@
+.d-sm-flex.align-items-center.justify-content-between.mb-2.d-print-none
+  div
+    h1.h3.mb-0.text-gray-800 
+      = content_for(:title)
+    nav aria-label="breadcrumb" 
+      = render_breadcrumbs builder: ::Bootstrap4BreadcrumbsBuilder 
+  = content_for(:page_subhead)
+  .btn-toolbar.mb-2.mb-md-0
+    = yield(:actions)
+
+- if yield(:view_tabs).present?
+  .row.d-print-none
+    .col-sm-12
+      .view-tabs
+        = yield(:view_tabs)

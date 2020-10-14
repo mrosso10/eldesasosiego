@@ -1,2 +1,10 @@
 //= require_tree .
 //= require_self
+
+
+@import "pg_rails/librerias";
+@import "pg_rails_b4";
+@import "sb-admin/scss/variables.scss";
+@import "navbar";
+@import "forms";
+@import "sb-admin/scss/sb-admin-2";

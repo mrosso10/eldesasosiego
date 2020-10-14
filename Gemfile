@@ -21,6 +21,7 @@ gem "webpacker", "~> 5.2"
 gem "pg_rails", path: "/home/luciano/proyectos/rails/pg_rails"
 gem 'slim-rails'
 gem 'chosen-rails'
+gem 'database_cleaner'
 
 gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
 gem 'pg_mantenimiento', path: "/home/luciano/proyectos/rails/pg_mantenimiento"

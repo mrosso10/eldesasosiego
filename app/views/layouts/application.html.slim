@@ -1,34 +1,15 @@
-doctype html
-html
-  head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    meta charset="utf-8" /
-    meta content="width=device-width, initial-scale=1.0" name="viewport" /
-    meta content="IE=edge" http-equiv="X-UA-Compatible" /
-
-    title = page_title
-
-    = javascript_include_tag 'librerias'
-    = javascript_include_tag 'application'
-
-    = favicon_link_tag 'favicon.ico' 
-
-    = csrf_meta_tags
-
-    <!-- analytics -->
-
-
-  #wrapper
-    = render("navbar")
-    /! Content Wrapper
-    #content-wrapper.d-flex.flex-column
-      #content
+#wrapper
+  - if user_signed_in?
+    = render("shared/navbar")
+  /! Content Wrapper
+  #content-wrapper.d-flex.flex-column
+    #content
+      - if user_signed_in?
         = render("shared/topnavbar")
-        .container-fluid
-          = render("shared/flash")
+      .container-fluid
+        = render("shared/flash")
+        - if user_signed_in?
           = render("shared/page_header")
-
-          
-          = yield 
+        = yield 
 
 - parent_layout "base"

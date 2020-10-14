@@ -1,0 +1,21 @@
+label.error {
+  color: red;
+}
+
+input, select {
+  &.error {
+    border-color: red;
+  }
+}
+
+.form-subgrupo .form-control {
+  display: inline-block;
+}
+
+.agregar-subgrupo {
+  display: block;
+}
+
+.form-subgrupo.plantilla {
+  display: none;
+}
