@@ -15,7 +15,7 @@ module Navbar
        { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-1', children: [
         { title: 'Usuarios', path: main_app.admin_users_path, show: policy(Admin::UsersController).index? },
         { title: 'Audits', path: main_app.admin_audits_path, show: desarrollador? },
-        { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: policy(ConfiguracionGeneral).allowed? },
+        { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: desarrollador? },
       ] }
     ]
   end

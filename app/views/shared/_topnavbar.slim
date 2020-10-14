@@ -17,7 +17,7 @@
         - if user_signed_in?
           li.dropdown
             = link_to '#', class: 'dropdown-toggle', style: 'padding: 5px 15px', data: { toggle: "dropdown" } do
-              = truncate current_user.name, length: 25
+              = truncate current_user.nombre, length: 25
               br
               = current_user.email
               |  

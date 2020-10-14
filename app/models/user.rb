@@ -53,10 +53,10 @@ class User < ApplicationRecord
   end
 
   def admin?
-    profiles.include? User.profile_types.admin
+    profiles.include? User.profile_type.admin
   end
 
   def administrativo?
-    profiles.include? User.profile_types.user
+    profiles.include? User.profile_type.user
   end
 end

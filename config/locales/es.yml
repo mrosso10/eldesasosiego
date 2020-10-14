@@ -1,0 +1,87 @@
+es:
+  helpers:
+    submit:
+      create: "Guardar %{model}"
+      submit: "Guardar %{model}"
+      update: "Guardar %{model}"
+  activerecord:
+    models:
+      categoria: Categoría
+      producto: Producto
+      cursada_alumno: Curso
+      estimate: Presupuesto
+      hability: Habilidad
+      measure: Medición
+      contacto: Contacto
+      empleado: Empleado
+      empleado_schedule: Horario
+      empleado_schedule_exception: Excepción de horario
+      curso: Curso
+      categoria_curso: Categoría de curso
+      turn: Turno
+      plan: Programa
+      plan_category: Categoría de programa
+      user: Usuario
+      anatomy: Observación
+      contacto_reminder: Recordatorio de Contacto
+      product: Producto
+      product_category: Categoría de producto
+      dermatologic_measure: Medida capilar
+      rubro: Rubro
+      salary: Sueldo
+      provider: Proveedor
+      other_egress: Gasto
+      provider_bill: Factura de Proveedor
+      provider_bill_item: Item de Factura 
+      provider_bill_payment: Pago
+      cash_register: Caja
+      mail_list: Lista de Mail
+      mail_log: Log de Mail
+      email: Mail
+      birthday_configuration: Configuración de Mail de Cumpleaños
+      indication: Indicación
+      commitment: Compromiso
+      pay_commitment: Compromiso de Pago
+      objective: Objetivo
+      manual_reminder: Recordatorio
+    errors:
+      format: "%{attribute} %{message}"
+      messages:
+        required: 'no está presente'
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: "no puede estar en blanco"
+              invalid: "incorrecta"
+            email:
+              blank: "no puede estar en blanco"
+              invalid: "incorrecta"
+              taken: "en uso"
+            password:
+              blank: "no puede estar en blanco"
+              invalid: "incorrecta"
+              too_short: "demasiado corta"
+            password_confirmation:
+              confirmation: "no coincide"
+            name: 
+              blank: "no puede estar en blanco"
+              invalid: "incorrecta"
+              too_short: "demasiado corta"
+            age:  
+              blank: "no puede estar en blanco"
+              invalid: "incorrecta"
+              too_short: "demasiado corta"
+  views:
+    pagination:
+      truncate: "Truncar"
+      next: '<i class="fa fa-angle-right"></i>'
+      last: '<i class="fa fa-angle-double-right"></i>'
+      previous: '<i class="fa fa-angle-left"></i>'
+      first: '<i class="fa fa-angle-double-left"></i>'
+      per_page: "Por página"
+      total: "Total"
+
+  devise:
+    failure:
+      not_found_in_database: "Usuario o contraseña incorrecta"

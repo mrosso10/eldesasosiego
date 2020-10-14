@@ -195,6 +195,15 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-async (1.0.0)
+      activejob (>= 5.0)
+      devise (>= 4.0)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
+    devise-i18n-views (0.3.7)
+    devise_invitable (2.0.2)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -495,6 +504,10 @@ DEPENDENCIES
   chosen-rails
   coffee-rails
   database_cleaner
+  devise-async
+  devise-i18n
+  devise-i18n-views
+  devise_invitable
   dotenv-rails
   factory_bot_rails
   faker

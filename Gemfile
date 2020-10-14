@@ -23,6 +23,11 @@ gem 'slim-rails'
 gem 'chosen-rails'
 gem 'database_cleaner'
 
+gem 'devise-async'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'devise_invitable'
+
 gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
 gem 'pg_mantenimiento', path: "/home/luciano/proyectos/rails/pg_mantenimiento"
 
