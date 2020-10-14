@@ -1,0 +1,20 @@
+- navbar_content.each do |entry|
+  - next if hide_entry?(entry)
+  li class="nav-item #{'active' if active_entry?(entry)}"
+
+    / - classes = entry[:children].present? ? 'collapsed' : ''
+    - data_options = entry[:children].present? ? { toggle: "collapse", target: "#collapse-#{entry[:label_id]}" } : {}
+
+    = link_to entry[:path], class: "nav-link #{'collapsed' unless active_entry?(entry)}", data: data_options
+      / span title="#{entry[:title]}" rel="tooltip"
+      i class="#{entry[:icon]}"
+      span class="#{entry[:label_id]}" = entry[:title]
+    - if entry[:children].present?
+      .collapse class="#{'xshow' if active_entry?(entry)}" id="collapse-#{entry[:label_id]}" data-parent="#accordionSidebar"
+        .bg-white.py-2.collapse-inner.rounded
+          / h6.collapse-header Custom Components:
+          - entry[:children].each do |child|
+            - next if hide_entry?(child)
+            = link_to child[:path], class: "collapse-item #{'active' if active_entry?(child)}"
+              / i.fa.fa-caret-right
+              span = child[:title]

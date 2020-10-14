@@ -1,0 +1,12 @@
+html
+  head
+    = yield(:css)
+  body
+    = yield
+    br
+    br
+    / = image_tag 'template logo url'
+    div style="font-size:11px"
+      i Email enviado automáticamente. No responder.
+      br
+      i PG_TEMPLATE
