@@ -14,10 +14,14 @@ gem "puma", "~> 3.11"
 gem "rack-canonical-host", "~> 1.0"
 gem "rails", "~> 6.0.0"
 gem "redis", "~> 4.0"
-gem "sass-rails"
+
+gem 'sassc-rails'
+gem 'sprockets'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 gem "sidekiq"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 5.2"
+
 gem "pg_rails", path: "/home/luciano/proyectos/rails/pg_rails"
 gem 'slim-rails'
 gem 'chosen-rails'
@@ -28,8 +32,18 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'devise_invitable'
 
+
 gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
 gem 'pg_mantenimiento', path: "/home/luciano/proyectos/rails/pg_mantenimiento"
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-handlebars'
+  gem 'rails-assets-typeahead.js'
+  gem 'rails-assets-jquery-steps'
+  gem 'rails-assets-jquery-validation'
+end
+
+gem 'jquery-rails'
 
 group :production do
   gem "postmark-rails"
@@ -72,3 +86,12 @@ group :test do
   gem "shoulda-matchers"
   gem "webdrivers"
 end
+
+gem 'tinymce-rails'
+#gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+
+
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'carrierwave-magic'
+gem "fog-aws"
+gem 'friendly_id', '~> 5.2.4'

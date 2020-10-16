@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  post '/tinymce_assets' => 'tinymce_assets#create'
+
   root to: "home#index"
 end

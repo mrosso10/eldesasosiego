@@ -32,14 +32,14 @@ class User < ApplicationRecord
   serialize :profiles, Array
 
   def to_s
-    name_or_email
+    nombre_o_email
   end
 
   def timeout_in
     30.minutes if Rails.env.production?
   end
 
-  def name_or_email
+  def nombre_o_email
     if nombre.present?
       nombre
     else
