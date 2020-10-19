@@ -9,8 +9,10 @@ GIT
       kaminari (>= 0.17)
       rails (>= 3.2)
 
-PATH
-  remote: /home/luciano/proyectos/rails/pg_mantenimiento
+GIT
+  remote: https://github.com/programandoarg/pg_mantenimiento.git
+  revision: e0aeae66ad02b0035ee47f1035c8be9046e1cbdb
+  ref: e0aeae66ad02b0035ee47f1035c8be9046e1cbdb
   specs:
     pg_mantenimiento (0.1.0)
       aws-sdk-s3 (~> 1)
@@ -21,8 +23,10 @@ PATH
       slim-rails
       sys-filesystem
 
-PATH
-  remote: /home/luciano/proyectos/rails/pg_rails
+GIT
+  remote: https://github.com/programandoarg/pg_rails.git
+  revision: 3d7e0c8184861f0cacbb09ad82fd73e9da179767
+  ref: 3d7e0c8184861f0cacbb09ad82fd73e9da179767
   specs:
     pg_rails (0.1.4)
       audited (~> 4.7)
@@ -134,7 +138,7 @@ GEM
     aws-sdk-kms (1.39.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.83.0)
+    aws-sdk-s3 (1.83.1)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)

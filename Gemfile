@@ -22,7 +22,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem "sidekiq"
 gem "turbolinks", "~> 5"
 
-gem "pg_rails", path: "/home/luciano/proyectos/rails/pg_rails"
+
 gem 'slim-rails'
 gem 'chosen-rails'
 gem 'database_cleaner'
@@ -34,7 +34,11 @@ gem 'devise_invitable'
 
 
 gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
-gem 'pg_mantenimiento', path: "/home/luciano/proyectos/rails/pg_mantenimiento"
+
+
+gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: '3d7e0c8184861f0cacbb09ad82fd73e9da179767'
+gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'e0aeae66ad02b0035ee47f1035c8be9046e1cbdb'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-handlebars'
