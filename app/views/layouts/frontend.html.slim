@@ -1,6 +1,32 @@
 - if user_signed_in?
   p = "Hola #{current_user}"
 
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand href="#"  Navbar
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        = link_to root_path, class: "nav-link" do
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        = link_to contacto_path, class: "nav-link" do
+          | Contacto
+      - if current_user.present?
+        li.nav-item
+          = link_to destroy_user_session_path, method: :delete ,class: "nav-link" do
+            | Cerrar sesión
+      - else
+        li.nav-item
+          = link_to new_user_session_path ,class: "nav-link" do
+            | Login
+        li.nav-item
+          = link_to new_user_registration_path ,class: "nav-link" do
+            | Registro
+
+
 = yield 
 
 - parent_layout "base"

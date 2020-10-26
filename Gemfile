@@ -99,3 +99,4 @@ gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'carrierwave-magic'
 gem "fog-aws"
 gem 'friendly_id', '~> 5.2.4'
+gem "recaptcha"

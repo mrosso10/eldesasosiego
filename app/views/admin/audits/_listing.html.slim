@@ -17,7 +17,7 @@ table.table.table-striped
         td = audit.auditable_type
         td
           - if audit.user.present?
-            = link_to audit.user.name, edit_admin_user_path(audit.user)
+            = link_to audit.user.nombre, edit_admin_user_path(audit.user)
         td = audit.action
         td.truncate
           .full.toggle style="display:none"
@@ -35,8 +35,8 @@ table.table.table-striped
                   tr
                     td = field
                     - if audit.action == 'update'
-                      td = print_value(value[0])
-                      td = print_value(value[1])
+                      td = print_value(audit.auditable_type, field, value[0])
+                      td = print_value(audit.auditable_type, field, value[1])
                     - else
                       td = print_value(value)
             a href="javascript:void(0)" onclick="$(this).closest('.truncate').find('.toggle').toggle()"

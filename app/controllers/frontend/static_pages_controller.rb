@@ -1,5 +1,5 @@
 # Renders the home page.
-class Frontend::HomeController < FrontendController
+class Frontend::StaticPagesController < FrontendController
   def login_as
     if Rails.env.development? || desarrollador?
       usuario = User.find(params[:id])
@@ -8,7 +8,7 @@ class Frontend::HomeController < FrontendController
     redirect_to '/'
   end
   
-  def index
+  def home
     @title = "Home"
   end
 end

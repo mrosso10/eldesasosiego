@@ -4,12 +4,10 @@ class ApplicationController < PgRails::ApplicationController
   before_action :authenticate_user!
 
   helper_method :desarrollador?
-  
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::ReadOnlyRecord, with: :readonly_record
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
-  add_breadcrumb 'Inicio', '/'
 
   protected
 
