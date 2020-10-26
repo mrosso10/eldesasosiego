@@ -1,0 +1,6 @@
+- if user_signed_in?
+  p = "Hola #{current_user}"
+
+= yield 
+
+- parent_layout "base"

@@ -3,30 +3,16 @@
     table.table.table-striped
       thead
         tr
-          th = smart_listing.sortable "Nombre", :name
+          th = smart_listing.sortable "Nombre", :nombre
           th = smart_listing.sortable "Email", :email
-          th Empleado asociado
-          th Empleado firma
-          th Perfiles
           th ¿Activo?
           th.actions
       tbody
         - smart_listing.collection.each do |user|
           tr
-            td
-              = user.name
-            td
-              = user.email
-            td
-              - if user.empleado.present?
-                = link_to user.empleado, empleado_path(user.empleado)
-            td
-              - if user.signs_with_empleado.present?
-                = link_to user.signs_with_empleado, empleado_path(user.signs_with_empleado)
-            td
-              = user.profile_names
-            td
-              = user.active? ? 'SI' : 'NO'
+            td = user.nombre
+            td = user.email
+            td = user.activo? ? 'SI' : 'NO'
             td
               = user.decorate.edit_link
               | &nbsp;

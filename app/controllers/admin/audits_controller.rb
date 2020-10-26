@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class AuditsController < ApplicationController
+  class AuditsController < AdminController
     def index
       # authorize :audits
       scope = Audited::Audit.includes(:user)

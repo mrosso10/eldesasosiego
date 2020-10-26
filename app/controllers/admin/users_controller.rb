@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
   before_action do
     authorize Admin::UsersController
   end
@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @title = 'Usuarios'
-    scope = User.order(:name).includes(:empleado, :signs_with_empleado)
+    scope = User.order(:nombre)
     scope = scope.where(desarrollador: false) unless desarrollador?
     smart_listing(:users, scope, 'admin/users/listing')
   end
@@ -30,7 +30,6 @@ class Admin::UsersController < ApplicationController
   def edit
     @user = User.find params[:id]
     @title = @user
-    # add_breadcrumb @user.email
   end
 
   def destroy
@@ -51,7 +50,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    parameters = params.require(:user).permit(:name, :email, :password, :password_confirmation, :active, profiles: [])
+    parameters = params.require(:user).permit(:nombre, :email, :password, :password_confirmation, :activo, profiles: [])
     parameters = parameters.except(:password) if parameters[:password].blank?
     parameters
   end
