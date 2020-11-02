@@ -5,45 +5,15 @@ es:
       submit: "Guardar %{model}"
       update: "Guardar %{model}"
   activerecord:
+    attributes:
+      post:
+        admin_post_category: Categoría
+        admin_post_category_id: Categoría
+        post_category_id: Categoría
+        post_category: Categoría
     models:
-      categoria: Categoría
-      producto: Producto
-      cursada_alumno: Curso
-      estimate: Presupuesto
-      hability: Habilidad
-      measure: Medición
-      contacto: Contacto
-      empleado: Empleado
-      empleado_schedule: Horario
-      empleado_schedule_exception: Excepción de horario
-      curso: Curso
-      categoria_curso: Categoría de curso
-      turn: Turno
-      plan: Programa
-      plan_category: Categoría de programa
-      user: Usuario
-      anatomy: Observación
-      contacto_reminder: Recordatorio de Contacto
-      product: Producto
-      product_category: Categoría de producto
-      dermatologic_measure: Medida capilar
-      rubro: Rubro
-      salary: Sueldo
-      provider: Proveedor
-      other_egress: Gasto
-      provider_bill: Factura de Proveedor
-      provider_bill_item: Item de Factura 
-      provider_bill_payment: Pago
-      cash_register: Caja
-      mail_list: Lista de Mail
-      mail_log: Log de Mail
-      email: Mail
-      birthday_configuration: Configuración de Mail de Cumpleaños
-      indication: Indicación
-      commitment: Compromiso
-      pay_commitment: Compromiso de Pago
-      objective: Objetivo
-      manual_reminder: Recordatorio
+      post: Post
+      post_category: Categoría de posteo
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -72,6 +42,8 @@ es:
               blank: "no puede estar en blanco"
               invalid: "incorrecta"
               too_short: "demasiado corta"
+
+
   views:
     pagination:
       truncate: "Truncar"

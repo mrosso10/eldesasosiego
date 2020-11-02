@@ -1,0 +1,31 @@
+.container
+  .row      
+    .col-xs-12 style="border-left: 1px solid #B3E6E6"
+      h3 Categorías
+      - Admin::PostCategory.without_deleted.find_each do |c|
+        .categoria
+          a.collapsed role="tab" data-toggle="collapse" href="#collapse-#{c.id}"
+            span.texto-big = c.nombre
+            | &nbsp;&nbsp;&nbsp;
+            fa.fas.fa-angle-down
+          .panel-collapse.collapse id="collapse-#{c.id}"
+            - c.posts.each do |p|
+              = link_to "/blog/#{p.friendly_id}" do
+                p.texto = p.titulo
+    .col-xs-12
+      - if @post.present?
+        h1 = @post.titulo
+        .post-content
+          = raw @post.contenido
+      - else
+        h1 Aún no hay noticias
+
+
+css:
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+  }
+  #bannerR {
+    margin: 0 !important;
+  }

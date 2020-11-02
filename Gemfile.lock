@@ -156,6 +156,7 @@ GEM
     brakeman (4.10.0)
     breadcrumbs_on_rails (4.0.0)
       rails (>= 5.0)
+    browser (2.0.3)
     builder (3.2.4)
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
@@ -558,6 +559,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   brakeman
+  browser (= 2.0.3)
   bundler-audit
   byebug
   capybara (>= 2.15)

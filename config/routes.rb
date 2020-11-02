@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :cosas
   namespace :admin do
     resources :posts
   end
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
     scope controller: :static_pages do
       get :home
       get :contacto
+      get :blog
+      get "/blog/:id", to: "static_pages#show_post"
     end
 
   end

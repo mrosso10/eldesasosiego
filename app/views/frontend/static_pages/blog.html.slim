@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-xs-8
+      - if @post.present?
+        h1 = @post.titulo
+        = raw @post.contenido
+      - else
+        h1 Aún no hay noticias
+    .col-xs-4 style="border-left: 1px solid #B3E6E6"
+      h3 Categorías
+      - Admin::PostCategory.without_deleted.find_each do |c|
+        - if c.posts.activos.any?
+          .categoria
+            a.collapsed role="tab" data-toggle="collapse" href="#collapse-#{c.id}"
+              h3 style="display:inline;" = c.nombre
+              | &nbsp;&nbsp;&nbsp;
+              fa.fas.fa-angle-down
+            .panel-collapse.collapse id="collapse-#{c.id}"
+              - c.posts.activos.each do |p|
+                = link_to "/blog/#{p.friendly_id}" do
+                  p = p.titulo
+        - else
+          p = c.nombre

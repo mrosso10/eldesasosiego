@@ -29,12 +29,19 @@
 
 class Admin::Post < ApplicationRecord
   audited
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
   acts_as_paranoid without_default_scope: true
 
-  belongs_to :post_category, class_name: 'Admin::PostCategory', foreign_key: "admin_post_category_id"
+  belongs_to :admin_post_category, class_name: 'Admin::PostCategory'
 
   belongs_to :creado_por, optional: true, class_name: 'User'
   belongs_to :actualizado_por, optional: true, class_name: 'User'
+
+  validates_presence_of :titulo, :slug, :contenido
+
+  scope :activos, -> { without_deleted.where(activo: true) }
 
   def to_s
     titulo

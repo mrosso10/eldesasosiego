@@ -12,6 +12,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       li.nav-item
         = link_to contacto_path, class: "nav-link" do
           | Contacto
+      li.nav-item
+        = link_to blog_path, class: "nav-link" do
+          | Blog
       - if current_user.present?
         li.nav-item
           .nav-link

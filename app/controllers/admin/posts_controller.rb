@@ -10,9 +10,7 @@ class Admin::PostsController < ApplicationController
   add_breadcrumb Admin::Post.nombre_plural, :admin_posts_path
 
   def index
-    filtros_permitidos = [:titulo, :activo, :slug, :contenido, :post_category, :post_category]
-    @filtros = PgRails::FiltrosBuilder.new(controller: self, filtros_permitidos: filtros_permitidos)
-    @posts = @filtros.filtrar
+    @posts = filtros_y_policy [:titulo, :activo, :slug, :contenido, :post_category]
 
     respond_to do |format|
       format.json { render json: @posts }
@@ -89,7 +87,7 @@ class Admin::PostsController < ApplicationController
       if action_name.in? %w(new create)
         @post = @clase_modelo.new(post_params)
       else
-        @post = @clase_modelo.find(params[:id])
+        @post = Admin::Post.friendly.find(params[:id])
 
         if action_name.in? %w(update)
           @post.assign_attributes(post_params)

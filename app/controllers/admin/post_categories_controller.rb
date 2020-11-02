@@ -10,9 +10,7 @@ class Admin::PostCategoriesController < ApplicationController
   add_breadcrumb Admin::PostCategory.nombre_plural, :admin_post_categories_path
 
   def index
-    filtros_permitidos = [:nombre]
-    @filtros = PgRails::FiltrosBuilder.new(controller: self, filtros_permitidos: filtros_permitidos)
-    @post_categories = @filtros.filtrar
+    @post_categories = filtros_y_policy [:nombre]
 
     respond_to do |format|
       format.json { render json: @post_categories }

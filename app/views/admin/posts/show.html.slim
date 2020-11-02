@@ -14,17 +14,11 @@
         th = @clase_modelo.human_attribute_name(:activo)
         td = @post.activo
       tr
-        th = @clase_modelo.human_attribute_name(:slug)
+        th Link
         td = @post.slug
       tr
-        th = @clase_modelo.human_attribute_name(:contenido)
-        td = @post.contenido
-      tr
         th = @clase_modelo.human_attribute_name(:post_category)
-        td = @post.post_category
-      tr
-        th = @clase_modelo.human_attribute_name(:post_category)
-        td = @post.post_category
+        td = @post.admin_post_category
       tr
         th = t(:creado_por)
         td = @post.creado_por
@@ -40,3 +34,10 @@
       tr
         th = t(:deleted_at)
         td = dmy_time @post.deleted_at
+
+
+.card
+  .card-title
+    h4 Contenido
+  .card-body
+    = raw @post.contenido
