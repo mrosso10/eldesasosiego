@@ -10,11 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_192337) do
+ActiveRecord::Schema.define(version: 2020_11_02_185108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "admin_post_categories", force: :cascade do |t|
+    t.string "nombre"
+    t.bigint "creado_por_id"
+    t.bigint "actualizado_por_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actualizado_por_id"], name: "index_admin_post_categories_on_actualizado_por_id"
+    t.index ["creado_por_id"], name: "index_admin_post_categories_on_creado_por_id"
+  end
+
+  create_table "admin_posts", force: :cascade do |t|
+    t.string "titulo"
+    t.boolean "activo"
+    t.string "slug"
+    t.text "contenido"
+    t.bigint "admin_post_category_id", null: false
+    t.bigint "creado_por_id"
+    t.bigint "actualizado_por_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actualizado_por_id"], name: "index_admin_posts_on_actualizado_por_id"
+    t.index ["admin_post_category_id"], name: "index_admin_posts_on_admin_post_category_id"
+    t.index ["creado_por_id"], name: "index_admin_posts_on_creado_por_id"
+  end
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -70,4 +97,9 @@ ActiveRecord::Schema.define(version: 2020_10_26_192337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "admin_post_categories", "users", column: "actualizado_por_id"
+  add_foreign_key "admin_post_categories", "users", column: "creado_por_id"
+  add_foreign_key "admin_posts", "admin_post_categories"
+  add_foreign_key "admin_posts", "users", column: "actualizado_por_id"
+  add_foreign_key "admin_posts", "users", column: "creado_por_id"
 end

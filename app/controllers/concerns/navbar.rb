@@ -12,7 +12,11 @@ module Navbar
 
   def navbar_content
     [
-       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-1', children: [
+       { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
+        { title: 'Categorías', path: main_app.admin_post_categories_path, show: policy(Admin::PostCategory).index? },
+        { title: 'Posteos', path: main_app.admin_posts_path, show: policy(Admin::Post).index? }
+      ]},
+       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
         { title: 'Usuarios', path: main_app.admin_users_path, show: policy(Admin::UsersController).index? },
         { title: 'Audits', path: main_app.admin_audits_path, show: desarrollador? },
         { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: desarrollador? },

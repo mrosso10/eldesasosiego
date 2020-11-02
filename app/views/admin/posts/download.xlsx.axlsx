@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: 'Post') do |sheet|
+  sheet.add_row [
+    @clase_modelo.human_attribute_name(:titulo),
+    @clase_modelo.human_attribute_name(:activo),
+    @clase_modelo.human_attribute_name(:slug),
+    @clase_modelo.human_attribute_name(:contenido),
+    @clase_modelo.human_attribute_name(:post_category),
+    @clase_modelo.human_attribute_name(:post_category),
+  ]
+
+  @posts.each do |post|
+    sheet.add_row [
+      post.titulo,
+      post.activo,
+      post.slug,
+      post.contenido,
+      post.post_category,
+      post.post_category,
+    ]
+  end
+end

@@ -1,0 +1,42 @@
+- content_for :title do
+  = @post.to_s
+- content_for :actions do
+  = @post.destroy_link
+  = @post.edit_link
+
+.card.d-inline-block
+  .card-body
+    table.table.table-borderless.table-sm.w-auto.mb-0
+      tr
+        th = @clase_modelo.human_attribute_name(:titulo)
+        td = @post.titulo
+      tr
+        th = @clase_modelo.human_attribute_name(:activo)
+        td = @post.activo
+      tr
+        th = @clase_modelo.human_attribute_name(:slug)
+        td = @post.slug
+      tr
+        th = @clase_modelo.human_attribute_name(:contenido)
+        td = @post.contenido
+      tr
+        th = @clase_modelo.human_attribute_name(:post_category)
+        td = @post.post_category
+      tr
+        th = @clase_modelo.human_attribute_name(:post_category)
+        td = @post.post_category
+      tr
+        th = t(:creado_por)
+        td = @post.creado_por
+      tr
+        th = I18n.t(:created_at)
+        td = dmy_time @post.created_at
+      tr
+        th = t(:actualizado_por)
+        td = @post.actualizado_por
+      tr
+        th = I18n.t(:updated_at)
+        td = dmy_time @post.updated_at
+      tr
+        th = t(:deleted_at)
+        td = dmy_time @post.deleted_at

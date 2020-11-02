@@ -1,0 +1,21 @@
+- unless smart_listing.empty?
+  .table-responsive
+    table.table.table-striped.listado
+      thead
+        tr
+          th = encabezado smart_listing, :nombre, ordenable: true
+          th
+      tbody
+        - smart_listing.collection.each do |post_category|
+          - post_category = post_category.decorate
+          tr data-id="#{post_category.id}"
+            td = post_category.nombre
+            td
+              = post_category.show_link
+              = post_category.edit_link
+              = post_category.destroy_link
+- else
+  p No hay #{@clase_modelo.nombre_plural.downcase} que mostrar
+
+= smart_listing.paginate
+= smart_listing.pagination_per_page_links

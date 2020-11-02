@@ -1,0 +1,31 @@
+- unless smart_listing.empty?
+  .table-responsive
+    table.table.table-striped.listado
+      thead
+        tr
+          th = encabezado smart_listing, :titulo, ordenable: true
+          th = encabezado smart_listing, :activo, ordenable: true
+          th = encabezado smart_listing, :slug, ordenable: true
+          th = encabezado smart_listing, :contenido, ordenable: true
+          th = encabezado smart_listing, :post_category, ordenable: true
+          th = encabezado smart_listing, :post_category, ordenable: true
+          th
+      tbody
+        - smart_listing.collection.each do |post|
+          - post = post.decorate
+          tr data-id="#{post.id}"
+            td = post.titulo
+            td = post.activo
+            td = post.slug
+            td = post.contenido
+            td = post.post_category
+            td = post.post_category
+            td
+              = post.show_link
+              = post.edit_link
+              = post.destroy_link
+- else
+  p No hay #{@clase_modelo.nombre_plural.downcase} que mostrar
+
+= smart_listing.paginate
+= smart_listing.pagination_per_page_links

@@ -1,0 +1,11 @@
+= pg_form_for(@post) do |f|
+  = f.mensajes_de_error
+
+  .form-inputs
+    = f.input :titulo
+    = f.input :activo
+    = f.input :contenido
+    = f.association :post_category, include_blank: "Seleccionar categoría"
+
+  .form-actions
+    = f.button :submit

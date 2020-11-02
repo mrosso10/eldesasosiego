@@ -34,11 +34,12 @@ table.table.table-striped
                 - audit.audited_changes.each do |field, value|
                   tr
                     td = field
-                    - if audit.action == 'update'
-                      td = print_value(audit.auditable_type, field, value[0])
-                      td = print_value(audit.auditable_type, field, value[1])
-                    - else
-                      td = print_value(value)
+                    - if value.present?
+                      - if audit.action == 'update'
+                        td = print_value(audit.auditable_type, field, value[0])
+                        td = print_value(audit.auditable_type, field, value[1])
+                      - else
+                        td = print_value(audit.auditable_type, field, value)
             a href="javascript:void(0)" onclick="$(this).closest('.truncate').find('.toggle').toggle()"
               | (-)
           .partial.toggle
