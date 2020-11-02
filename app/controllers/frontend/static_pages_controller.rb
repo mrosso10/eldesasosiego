@@ -11,4 +11,9 @@ class Frontend::StaticPagesController < FrontendController
   def home
     @title = "Home"
   end
+
+  def contacto
+    @title = "Contacto"
+    @message = Message.new
+  end
 end

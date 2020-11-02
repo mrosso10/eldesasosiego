@@ -16,6 +16,7 @@ html
     title
       = page_title
   - toggled = navbar_toggled? ? "sidebar-toggled" : ''
-  body class=("#{toggled}") 
+  body class=("#{toggled}")
+    = render partial: "shared/flash"
     = yield
     = javascript_include_tag("sb-admin-2", "data-turbolinks-track" => "reload", async: true)

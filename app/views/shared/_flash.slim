@@ -1,7 +1,7 @@
-#toast-container" style="position: fixed; top: 0; right: 0; padding: 30px; z-index: 1060">
+#toast-container style="position: fixed; top: 0; right: 0; padding: 30px; z-index: 1060"
 
 javascript:
-  var flashJson = '<%= flash.to_json.html_safe %>';
+  var flashJson = '#{flash.to_json.html_safe}';
   flashJson = JSON.parse(flashJson);
   var flashLength = flashJson.length;
   
