@@ -1,42 +1,46 @@
 # pg_template
 
-This is a Rails 6 app.
+Plantilla para crear una app Rails.
 
-## Documentation
+Creada con https://github.com/mattbrictson/rails-template
 
-This README describes the purpose of this repository and how to set up a development environment.
-
-## Prerequisites
+## Pre-requisitos
 
 This project requires:
 
-* Ruby 2.6.2, preferably managed using [rbenv][]
+* Ruby 2.6.3, preferably managed using [rbenv][]
 * Chromedriver for Capybara testing
 * PostgreSQL must be installed and accepting connections
 * [Redis][] must be installed and running on localhost with the default port
 
-On a Mac, you can obtain all of the above packages using [Homebrew][].
+## Setup
 
-If you need help setting up a Ruby development environment, check out this [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
+### Crear rol en Postgres
 
-## Getting started
+1. Ingresar a la consola de postgres:
+```
+sudo -u postgres psql template1
+```
+2. Crear el rol
+```
+create role template_pg password 'template_pg' login superuser;
+```
 
 ### bin/setup
 
 Run the `bin/setup` script. This script will:
 
 * Check you have the required Ruby version
-* Install dependencies using Bundler and Yarn
+* Install dependencies using Bundler
 * Create a `.env.development` file
 * Create, migrate, and seed the database
 
 ### Run it!
 
-1. Run `bin/rake` to run all tests and lint checks.
-2. Start the app with `yarn start` or run these processes individually:
-   - Rails: `bin/rails s -b 0.0.0.0`
-   - Webpack: `bin/webpack-dev-server`
-   - Sidekiq: `bin/sidekiq`
+<!--
+  TODO:
+  1. Run `bin/rake` to run all tests and lint checks. -->
+1. Start the app with `bundle exec rails server`
 
 Access the app at <http://localhost:3000/>.
 
@@ -68,3 +72,4 @@ Optionally:
 [rbenv]:https://github.com/sstephenson/rbenv
 [redis]:http://redis.io
 [Homebrew]:http://brew.sh
+
