@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_185108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "admin_post_categories", force: :cascade do |t|
     t.string "nombre"
@@ -71,13 +70,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_185108) do
     t.string "file"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
-    t.string "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string "srtext", limit: 2048
-    t.string "proj4text", limit: 2048
   end
 
   create_table "users", force: :cascade do |t|
