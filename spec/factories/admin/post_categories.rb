@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_post_categories
@@ -24,7 +26,5 @@
 FactoryBot.define do
   factory :admin_post_category, class: 'Admin::PostCategory' do
     nombre { Faker::Lorem.sentence }
-
-    
   end
 end

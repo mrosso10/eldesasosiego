@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_posts
@@ -32,7 +34,7 @@ FactoryBot.define do
     titulo { Faker::Lorem.sentence }
     activo { false }
     slug { Faker::Lorem.sentence }
-    contenido { "MyText" }
+    contenido { 'MyText' }
     association :post_category, factory: :post_category
     association :post_category, factory: :admin_post_category
 
@@ -40,11 +42,10 @@ FactoryBot.define do
       post_category { nil }
       post_category_id { PostCategory.all.pluck(:id).sample }
     end
-    
+
     trait :post_category_existente do
       post_category { nil }
       post_category_id { Admin::PostCategory.all.pluck(:id).sample }
     end
-
   end
 end

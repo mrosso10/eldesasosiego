@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_posts
@@ -54,7 +56,6 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe Admin::PostsController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # Admin::Post. As you add validations to Admin::Post, be sure to
   # adjust the attributes here as well.
@@ -62,16 +63,16 @@ RSpec.describe Admin::PostsController, type: :controller do
   let(:post_category) { create :post_category }
   let(:post_category) { create :post_category }
 
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     attributes_for(:admin_post).merge(post_category_id: post_category.id, post_category_id: post_category.id)
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       post_category: nil,
-      post_category: nil,
+      post_category: nil
     }
-  }
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -83,102 +84,100 @@ RSpec.describe Admin::PostsController, type: :controller do
     sign_in user
   end
 
-
-  describe "GET #index" do
-    it "returns a success response" do
+  describe 'GET #index' do
+    it 'returns a success response' do
       create(:post)
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
   end
 
-  describe "GET #show" do
-    it "returns a success response" do
+  describe 'GET #show' do
+    it 'returns a success response' do
       post = create(:post)
-      get :show, params: {id: post.to_param}, session: valid_session
+      get :show, params: { id: post.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
 
-  describe "GET #new" do
-    it "returns a success response" do
+  describe 'GET #new' do
+    it 'returns a success response' do
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
     end
   end
 
-  describe "GET #edit" do
-    it "returns a success response" do
+  describe 'GET #edit' do
+    it 'returns a success response' do
       post = create(:post)
-      get :edit, params: {id: post.to_param}, session: valid_session
+      get :edit, params: { id: post.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Admin::Post" do
-        expect {
-          post :create, params: {admin_post: valid_attributes}, session: valid_session
-        }.to change(Admin::Post, :count).by(1)
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'creates a new Admin::Post' do
+        expect do
+          post :create, params: { admin_post: valid_attributes }, session: valid_session
+        end.to change(Admin::Post, :count).by(1)
       end
 
-      it "redirects to the created admin_post" do
-        post :create, params: {admin_post: valid_attributes}, session: valid_session
+      it 'redirects to the created admin_post' do
+        post :create, params: { admin_post: valid_attributes }, session: valid_session
         expect(response).to redirect_to(Admin::Post.last)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {admin_post: invalid_attributes}, session: valid_session
+        post :create, params: { admin_post: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
+  describe 'PUT #update' do
+    context 'with valid params' do
+      let(:new_attributes) do
         attributes_for(:admin_post)
-      }
-
-      it "updates the requested admin_post" do
-        post = create(:post)
-        put :update, params: {id: post.to_param, admin_post: new_attributes}, session: valid_session
-        post.reload
-        skip("Add assertions for updated state")
       end
 
-      it "redirects to the admin_post" do
+      it 'updates the requested admin_post' do
         post = create(:post)
-        put :update, params: {id: post.to_param, admin_post: valid_attributes}, session: valid_session
+        put :update, params: { id: post.to_param, admin_post: new_attributes }, session: valid_session
+        post.reload
+        skip('Add assertions for updated state')
+      end
+
+      it 'redirects to the admin_post' do
+        post = create(:post)
+        put :update, params: { id: post.to_param, admin_post: valid_attributes }, session: valid_session
         expect(response).to redirect_to(post)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         post = create(:post)
-        put :update, params: {id: post.to_param, admin_post: invalid_attributes}, session: valid_session
+        put :update, params: { id: post.to_param, admin_post: invalid_attributes }, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested admin_post" do
+  describe 'DELETE #destroy' do
+    it 'destroys the requested admin_post' do
       post = create(:post)
-      expect {
-        delete :destroy, params: {id: post.to_param}, session: valid_session
-      }.to change(Admin::Post.without_deleted, :count).by(-1)
+      expect do
+        delete :destroy, params: { id: post.to_param }, session: valid_session
+      end.to change(Admin::Post.without_deleted, :count).by(-1)
     end
 
-    it "redirects to the admin_posts list" do
+    it 'redirects to the admin_posts list' do
       post = create(:post)
-      delete :destroy, params: {id: post.to_param}, session: valid_session
+      delete :destroy, params: { id: post.to_param }, session: valid_session
       expect(response).to redirect_to(admin_posts_url)
     end
   end
-
 end
