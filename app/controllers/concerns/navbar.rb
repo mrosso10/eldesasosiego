@@ -12,16 +12,18 @@ module Navbar
 
   def navbar_content
     [
-       { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
-        { title: 'Categorías', path: main_app.admin_post_categories_path, show: policy(Admin::PostCategory).index? },
+      { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
+        { title: 'Categorías', path: main_app.admin_post_categories_path,
+          show: policy(Admin::PostCategory).index? },
         { title: 'Posteos', path: main_app.admin_posts_path, show: policy(Admin::Post).index? }
-      ]},
-       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
-        { title: 'Usuarios', path: main_app.admin_users_path, show: policy(Admin::UsersController).index? },
-        { title: 'Audits', path: main_app.admin_audits_path, show: desarrollador? },
-        { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: desarrollador? },
       ] },
-      { title: "Ir al sitio web", icon: 'fa fa-globe', label_id: "label_2"}
+      { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
+        { title: 'Usuarios', path: main_app.admin_users_path,
+          show: policy(Admin::UsersController).index? },
+        { title: 'Audits', path: main_app.admin_audits_path, show: desarrollador? },
+        { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: desarrollador? }
+      ] },
+      { title: 'Ir al sitio web', icon: 'fa fa-globe', label_id: 'label_2' }
     ]
   end
 
@@ -44,7 +46,8 @@ module Navbar
   def custom_current_page?(path)
     current_route = Rails.application.routes.recognize_path(request.env['PATH_INFO'])
     test_route = Rails.application.routes.recognize_path(path)
-    current_route[:controller] == test_route[:controller] && current_route[:action] == test_route[:action]
+    current_route[:controller] == test_route[:controller] &&
+      current_route[:action] == test_route[:action]
   rescue ActionController::RoutingError
     false
   end
@@ -52,8 +55,8 @@ module Navbar
   def active_entry?(entry)
     if entry[:children].present?
       any_children_active?(entry)
-    else
-      custom_current_page?(entry[:path]) if entry[:path].present?
+    elsif entry[:path].present?
+      custom_current_page?(entry[:path])
     end
   end
 end

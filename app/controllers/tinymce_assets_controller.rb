@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TinymceAssetsController < ApplicationController
   def create
     # Take upload from params[:file] and store it somehow...
@@ -8,6 +10,6 @@ class TinymceAssetsController < ApplicationController
       image: {
         url: image.file.url
       }
-    }, content_type: "text/html"
+    }, content_type: 'text/html'
   end
 end

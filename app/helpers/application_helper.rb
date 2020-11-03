@@ -1,7 +1,8 @@
-module ApplicationHelper
+# frozen_string_literal: true
 
+module ApplicationHelper
   def navbar_toggled?
-    cookies["sidebar_toggled"] == "true" || mobile_device?
+    cookies['sidebar_toggled'] == 'true' || mobile_device?
   end
 
   def active_controller?(controller_name, class_name = nil)
@@ -30,7 +31,7 @@ module ApplicationHelper
 
   def mobile_device?
     if session[:mobile_param]
-      session[:mobile_param] == "1"
+      session[:mobile_param] == '1'
     else
       request.user_agent =~ /Mobile|webOS/
     end
@@ -62,7 +63,6 @@ module ApplicationHelper
 
   def link_to_audit(audit)
     link_to '+', audit.auditable, class: 'btn btn-sm btn-primary', target: '_blank'
-  rescue StandardError
+  rescue StandardError # rubocop:disable Lint/SuppressedException
   end
-
 end

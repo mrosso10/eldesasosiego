@@ -61,15 +61,13 @@ RSpec.describe Admin::PostsController, type: :controller do
   # adjust the attributes here as well.
 
   let(:post_category) { create :post_category }
-  let(:post_category) { create :post_category }
 
   let(:valid_attributes) do
-    attributes_for(:admin_post).merge(post_category_id: post_category.id, post_category_id: post_category.id)
+    attributes_for(:admin_post).merge(post_category_id: post_category.id)
   end
 
   let(:invalid_attributes) do
     {
-      post_category: nil,
       post_category: nil
     }
   end
@@ -145,14 +143,16 @@ RSpec.describe Admin::PostsController, type: :controller do
 
       it 'updates the requested admin_post' do
         post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: new_attributes }, session: valid_session
+        put :update, params: { id: post.to_param, admin_post: new_attributes },
+                     session: valid_session
         post.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the admin_post' do
         post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: valid_attributes }, session: valid_session
+        put :update, params: { id: post.to_param, admin_post: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(post)
       end
     end
@@ -160,7 +160,8 @@ RSpec.describe Admin::PostsController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: invalid_attributes }, session: valid_session
+        put :update, params: { id: post.to_param, admin_post: invalid_attributes },
+                     session: valid_session
         expect(response).to be_successful
       end
     end
