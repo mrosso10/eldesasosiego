@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # `Bootstrap4BreadcrumbsBuilder `is a Bootstrap 4 (alpha6) compatible breadcrumb
 # builder. It is designed to work with the `breadcrumbs_on_rails` gem as a
 # drop-in builder replacement.
@@ -58,7 +60,7 @@ class Bootstrap4BreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder
 
   private
 
-  def should_render?
-    @elements.any? || @options[:show_empty]
-  end
+    def should_render?
+      @elements.any? || @options[:show_empty]
+    end
 end

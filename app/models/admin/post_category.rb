@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_post_categories
@@ -21,12 +23,14 @@
 #  fk_rails_...  (creado_por_id => users.id)
 #
 
-class Admin::PostCategory < ApplicationRecord
-  audited
-  acts_as_paranoid without_default_scope: true
+module Admin
+  class PostCategory < ApplicationRecord
+    audited
+    acts_as_paranoid without_default_scope: true
 
-  belongs_to :creado_por, optional: true, class_name: 'User'
-  belongs_to :actualizado_por, optional: true, class_name: 'User'
+    belongs_to :creado_por, optional: true, class_name: 'User'
+    belongs_to :actualizado_por, optional: true, class_name: 'User'
 
-  has_many :posts, class_name: "Admin::Post", foreign_key: "admin_post_category_id"
+    has_many :posts, class_name: 'Admin::Post', foreign_key: 'admin_post_category_id'
+  end
 end

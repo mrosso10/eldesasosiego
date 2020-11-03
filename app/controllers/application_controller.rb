@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < PgRails::ApplicationController
   include Navbar
 
@@ -48,7 +50,6 @@ class ApplicationController < PgRails::ApplicationController
     end
 
     def record_not_found
-      render file: "public/404.html", layout: false
+      render file: 'public/404.html', layout: false
     end
-    
 end

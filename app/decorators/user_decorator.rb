@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserDecorator < PgRails::BaseDecorator
   def object_url
     helpers.admin_user_path(object)

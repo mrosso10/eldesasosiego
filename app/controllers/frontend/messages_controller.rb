@@ -1,30 +1,32 @@
-class Frontend::MessagesController < FrontendController
-  def create
-    @message = Message.new(message_params)
+# frozen_string_literal: true
 
-    success = verify_recaptcha(model: @message, action: 'contacto')
+module Frontend
+  class MessagesController < FrontendController
+    def create
+      @message = Message.new(message_params)
 
-    if !success
-      flash[:error] = "Debe completar el captcha."
+      success = verify_recaptcha(model: @message, action: 'contacto')
+
+      unless success
+        flash[:error] = 'Debe completar el captcha.'
+        redirect_to root_path
+        return
+      end
+
+      if @message.valid?
+        MessageMailer.message_me(@message).deliver_now
+        flash[:info] = 'Mensaje Enviado. Gracias por contactarnos.'
+      else
+        flash[:error] = 'Hubo un error en el envío de mensaje, '\
+                        'por favor complete los campos obligatorios.'
+      end
       redirect_to root_path
-      return
     end
 
-    if @message.valid?
-      MessageMailer.message_me(@message).deliver_now
-      flash[:info] = "Mensaje Enviado. Gracias por contactarnos."
-      redirect_to root_path
-    else
-      flash[:error] = "Hubo un error en el envío de mensaje, por favor complete los campos obligatorios."
-      redirect_to root_path
-    end
+    private
+
+      def message_params
+        params.require(:message).permit(:nombre, :email, :mensaje)
+      end
   end
-
-
-  private
-
-  def message_params
-    params.require(:message).permit(:nombre, :email, :mensaje)
-  end
-
 end

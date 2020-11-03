@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 wb = xlsx_package.workbook
 wb.add_worksheet(name: 'Post') do |sheet|
   sheet.add_row [
@@ -6,7 +8,7 @@ wb.add_worksheet(name: 'Post') do |sheet|
     @clase_modelo.human_attribute_name(:slug),
     @clase_modelo.human_attribute_name(:contenido),
     @clase_modelo.human_attribute_name(:post_category),
-    @clase_modelo.human_attribute_name(:post_category),
+    @clase_modelo.human_attribute_name(:post_category)
   ]
 
   @posts.each do |post|
@@ -16,7 +18,7 @@ wb.add_worksheet(name: 'Post') do |sheet|
       post.slug,
       post.contenido,
       post.post_category,
-      post.post_category,
+      post.post_category
     ]
   end
 end

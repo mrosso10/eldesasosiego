@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -44,14 +46,14 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = ENV["RAILS_FORCE_SSL"].present?
+  config.force_ssl = ENV['RAILS_FORCE_SSL'].present?
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -69,15 +71,15 @@ Rails.application.configure do
   # Production email config
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = {
-    api_token: ENV["POSTMARK_API_KEY"],
+    api_token: ENV['POSTMARK_API_KEY'],
     http_ssl_version: :TLSv1_2 # TODO: remove this workaround once Postmark supports TLS 1.3
   }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {
-    host: "template.programando.com.ar",
-    protocol: "https"
+    host: 'template.programando.com.ar',
+    protocol: 'https'
   }
-  config.action_mailer.asset_host = "https://template.programando.com.ar"
+  config.action_mailer.asset_host = 'https://template.programando.com.ar'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -93,8 +95,8 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end

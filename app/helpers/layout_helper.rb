@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LayoutHelper
   # Used to achieve nested layouts without content_for. This helper relies on
   # Rails internals, so beware that it make break with future major versions
@@ -10,7 +12,7 @@ module LayoutHelper
   #     <% parent_layout "parent" %>
   #
   def parent_layout(layout)
-    @view_flow.set(:layout, output_buffer) # rubocop:disable Rails/HelperInstanceVariable
+    @view_flow.set(:layout, output_buffer)
     output = render(template: "layouts/#{layout}")
     self.output_buffer = ActionView::OutputBuffer.new(output)
   end

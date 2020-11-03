@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_posts
@@ -27,23 +29,25 @@
 #  fk_rails_...  (creado_por_id => users.id)
 #
 
-class Admin::Post < ApplicationRecord
-  audited
-  extend FriendlyId
-  friendly_id :slug, use: :slugged
+module Admin
+  class Post < ApplicationRecord
+    audited
+    extend FriendlyId
+    friendly_id :slug, use: :slugged
 
-  acts_as_paranoid without_default_scope: true
+    acts_as_paranoid without_default_scope: true
 
-  belongs_to :admin_post_category, class_name: 'Admin::PostCategory'
+    belongs_to :admin_post_category, class_name: 'Admin::PostCategory'
 
-  belongs_to :creado_por, optional: true, class_name: 'User'
-  belongs_to :actualizado_por, optional: true, class_name: 'User'
+    belongs_to :creado_por, optional: true, class_name: 'User'
+    belongs_to :actualizado_por, optional: true, class_name: 'User'
 
-  validates_presence_of :titulo, :slug, :contenido
+    validates_presence_of :titulo, :slug, :contenido
 
-  scope :activos, -> { without_deleted.where(activo: true) }
+    scope :activos, -> { without_deleted.where(activo: true) }
 
-  def to_s
-    titulo
+    def to_s
+      titulo
+    end
   end
 end
