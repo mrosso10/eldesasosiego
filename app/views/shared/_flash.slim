@@ -4,7 +4,7 @@ javascript:
   var flashJson = '#{flash.to_json.html_safe}';
   flashJson = JSON.parse(flashJson);
   var flashLength = flashJson.length;
-  
+
   $(document).ready( function() {
     for (var i = 0; i < flashLength; i++) {
       PgRails.showToast(flashJson[i][0],flashJson[i][1]);

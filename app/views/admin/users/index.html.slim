@@ -1,11 +1,11 @@
 - content_for(:title, 'Administrar Usuarios')
 - content_for :actions do
   - if policy(Admin::UsersController).new?
-    = link_to new_admin_user_path, class: 'btn btn-primary' do 
+    = link_to new_admin_user_path, class: 'btn btn-primary' do
       span.fa.fa-plus
       |  Nuevo usuario
 
 .xform-wrapper-lg
   .card.float-e-margins
-    .card-body 
+    .card-body
       = smart_listing_render(:users)

@@ -4,16 +4,16 @@ nav.navbar.navbar-expand.navbar-light.bg-white.topbar.mb-4.sticky-top.shadow
     i.fa.fa-bars
   ul.navbar-nav.ml-auto
     li.nav-item.dropdown.no-arrow
-      a#userDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+      a#userDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
         i.fas.fa-user.fa-fw
         | \&nbsp;
         span.mr-2.d-none.d-lg-inline.text-gray-600.small = current_user.to_s
         /! <img class="img-profile rounded-circle" src=""
       /! Dropdown - User Information
-      .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in aria-labelledby="userDropdown" 
-        a.dropdown-item href=("#{ main_app.edit_user_registration_path }") 
+      .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in aria-labelledby="userDropdown"
+        a.dropdown-item href=("#{ main_app.edit_user_registration_path }")
           i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
           | Mi perfil
-        a.dropdown-item data-method="delete" href=("#{ main_app.destroy_user_session_path }") 
+        a.dropdown-item data-method="delete" href=("#{ main_app.destroy_user_session_path }")
           i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400
           | Cerrar sesión

@@ -32,11 +32,11 @@ es:
               too_short: "demasiado corta"
             password_confirmation:
               confirmation: "no coincide"
-            name: 
+            name:
               blank: "no puede estar en blanco"
               invalid: "incorrecta"
               too_short: "demasiado corta"
-            age:  
+            age:
               blank: "no puede estar en blanco"
               invalid: "incorrecta"
               too_short: "demasiado corta"
