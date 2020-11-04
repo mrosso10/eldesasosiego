@@ -22,7 +22,7 @@ module Frontend
 
     def blog
       @post = Admin::Post.activos.last
-      @title = @post.titulo
+      @title = @post.titulo if @post.present?
       render_blog
     end
 
