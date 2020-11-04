@@ -3,8 +3,6 @@
 class ApplicationController < PgRails::ApplicationController
   include Navbar
 
-  before_action :authenticate_user!
-
   helper_method :desarrollador?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
