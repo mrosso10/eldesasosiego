@@ -80,6 +80,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem 'rspec-rails', '~> 3.5'
   gem 'faker'
+  gem 'slim_lint'
 end
 
 group :test do

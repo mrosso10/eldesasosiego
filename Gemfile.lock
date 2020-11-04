@@ -503,6 +503,9 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    slim_lint (0.20.2)
+      rubocop (>= 0.78.0)
+      slim (>= 3.0, < 5.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -609,6 +612,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   slim-rails
+  slim_lint
   smart_listing!
   spring
   spring-watcher-listen (~> 2.0.0)
