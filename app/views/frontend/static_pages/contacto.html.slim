@@ -1,8 +1,9 @@
-.row
-  .col-sm-12.col-md-4
-    = simple_form_for @message do |f| 
-      = f.input :nombre
-      = f.input :email
-      = f.input :mensaje, as: :text
-      = recaptcha_v3(action: "contacto", secret_key: ENV['RECAPTCHA_SECRET_KEY'])
-      = f.submit 'Enviar'
+.container
+  .row
+    .col-sm-12.col-md-4
+      = simple_form_for @message do |f| 
+        = f.input :nombre
+        = f.input :email
+        = f.input :mensaje, as: :text
+        = recaptcha_v3(action: "contacto", secret_key: ENV['RECAPTCHA_SECRET_KEY'])
+        = f.submit 'Enviar'

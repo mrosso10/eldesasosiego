@@ -7,3 +7,7 @@
 @import "navbar";
 @import "forms";
 @import "sb-admin/scss/sb-admin-2";
+
+.sidebar {
+  z-index: 1;
+}
