@@ -17,3 +17,5 @@ DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata))
   end
 end
 
+FactoryBot.create_list(:admin_post_category, 10)
+FactoryBot.create_list(:admin_post, 50, :post_category_existente)
