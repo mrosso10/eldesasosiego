@@ -23,7 +23,7 @@ module Navbar
         { title: 'Audits', path: main_app.admin_audits_path, show: desarrollador? },
         { title: 'Backups y Server', path: pg_mantenimiento.root_path, show: desarrollador? }
       ] },
-      { title: 'Ir al sitio web', icon: 'fa fa-globe', label_id: 'label_2' }
+      { title: 'Ir al sitio web', path: '/', icon: 'fa fa-globe', label_id: 'label_2' }
     ]
   end
 
