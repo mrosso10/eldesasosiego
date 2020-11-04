@@ -8,7 +8,7 @@
     if ($(".sidebar").hasClass("toggled")) {
       $('.sidebar .collapse').collapse('hide');
     };
-    document.cookie = "sidebar_toggled="+$(".sidebar").hasClass("toggled");
+    document.cookie = "sidebar_toggled="+$(".sidebar").hasClass("toggled")+";path=/";
   });
 
   // Close any open menu accordions when window is resized below 768px
