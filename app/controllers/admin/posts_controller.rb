@@ -110,7 +110,7 @@ module Admin
       end
 
       def atributos_permitidos
-        %i[titulo activo slug contenido admin_post_category_id]
+        %i[titulo activo slug contenido post_category_id]
       end
   end
 end

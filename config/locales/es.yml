@@ -7,8 +7,6 @@ es:
   activerecord:
     attributes:
       post:
-        admin_post_category: Categoría
-        admin_post_category_id: Categoría
         post_category_id: Categoría
         post_category: Categoría
     models:

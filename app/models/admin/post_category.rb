@@ -31,6 +31,6 @@ module Admin
     belongs_to :creado_por, optional: true, class_name: 'User'
     belongs_to :actualizado_por, optional: true, class_name: 'User'
 
-    has_many :posts, class_name: 'Admin::Post', foreign_key: 'admin_post_category_id'
+    has_many :posts, class_name: 'Admin::Post', foreign_key: 'post_category_id'
   end
 end

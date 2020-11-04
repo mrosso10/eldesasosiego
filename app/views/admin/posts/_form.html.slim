@@ -9,7 +9,7 @@
     = f.input :contenido, cols: 40, rows: 50 , input_html: { class: "tinymce" }, required: false
     = tinymce height: "500", uploadimage: true, relative_urls: false
 
-    = f.association :admin_post_category, include_blank: "Seleccionar categoría"
+    = f.association :post_category, include_blank: "Seleccionar categoría"
 
   .form-actions
     = f.button :submit

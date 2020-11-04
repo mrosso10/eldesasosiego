@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_185108) do
+ActiveRecord::Schema.define(version: 2020_11_04_042938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,15 @@ ActiveRecord::Schema.define(version: 2020_11_02_185108) do
     t.boolean "activo"
     t.string "slug"
     t.text "contenido"
-    t.bigint "admin_post_category_id", null: false
+    t.bigint "post_category_id", null: false
     t.bigint "creado_por_id"
     t.bigint "actualizado_por_id"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["actualizado_por_id"], name: "index_admin_posts_on_actualizado_por_id"
-    t.index ["admin_post_category_id"], name: "index_admin_posts_on_admin_post_category_id"
     t.index ["creado_por_id"], name: "index_admin_posts_on_creado_por_id"
+    t.index ["post_category_id"], name: "index_admin_posts_on_post_category_id"
   end
 
   create_table "audits", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_185108) do
 
   add_foreign_key "admin_post_categories", "users", column: "actualizado_por_id"
   add_foreign_key "admin_post_categories", "users", column: "creado_por_id"
-  add_foreign_key "admin_posts", "admin_post_categories"
+  add_foreign_key "admin_posts", "admin_post_categories", column: "post_category_id"
   add_foreign_key "admin_posts", "users", column: "actualizado_por_id"
   add_foreign_key "admin_posts", "users", column: "creado_por_id"
 end
