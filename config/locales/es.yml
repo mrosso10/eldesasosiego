@@ -10,8 +10,12 @@ es:
         post_category_id: Categoría
         post_category: Categoría
     models:
-      post: Post
-      post_category: Categoría de posteo
+      admin/post:
+        one: Posteo
+        other: Posteos
+      admin/post_category:
+        one: Categoría de posteo
+        other: Categorías de posteos
     errors:
       format: "%{attribute} %{message}"
       messages:
