@@ -36,7 +36,8 @@ gem 'devise_invitable'
 gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
 
 
-gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: 'a8c74366cd5ed547cdfc0e36c75d87d58b2acd1a'
+# gem 'pg_rails', path: '/proyectos/pg_rails'
+gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: 'c31e38ac9172b545becae6f7f3bcb79c4db76789'
 gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'e0aeae66ad02b0035ee47f1035c8be9046e1cbdb'
 
 
