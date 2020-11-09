@@ -1,0 +1,41 @@
+- content_for :actions do
+  button.btn.btn-primary.m-r#submit_form type="button" Actualizar perfil
+
+- content_for :title do
+  | Perfil
+
+= pg_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification message: resource.errors[:base].to_sentence if resource.errors[:base].present?
+  = render "devise/shared/error_messages", resource: resource 
+
+  .row
+    .col-12.col-md-4
+      .card.float-e-margins
+        .card-header
+          h5 Datos básicos
+        .card-body
+          = f.input :nombre
+    .col-12.col-md-4
+      .card.float-e-margins
+        .card-header
+          h5 Cambiar contraseña
+          p Para cambiar su contraseña debe indicar su contraseña actual. De lo contrario ignore estos campos
+        .card-body
+          .form-group
+            = f.password_field :current_password, autocomplete: "off", class: "form-control",  placeholder: "Contraseña Actual"
+          .form-group
+            = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Nueva Contraseña"
+          .form-group
+            = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Repita Nueva Contraseña"
+    .col-12.col-md-4
+      .card.float-e-margins
+        .card-header
+          h5 Email
+          p.text-danger Si cambia su email deberá reconfirmarlo antes de poder seguir usando su usuario
+        .card-body
+          = f.input :email, label: false
+
+javascript:
+  $("#submit_form").click(function(){
+    $("form").submit();
+  });

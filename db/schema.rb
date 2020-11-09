@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_042938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
 
   create_table "admin_post_categories", force: :cascade do |t|
     t.string "nombre"
