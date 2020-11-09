@@ -6,6 +6,9 @@
 #
 #  id                     :bigint           not null, primary key
 #  activo                 :boolean          default(TRUE)
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
 #  desarrollador          :boolean          default(FALSE)
 #  edad                   :integer
 #  email                  :string           default(""), not null
@@ -15,6 +18,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

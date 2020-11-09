@@ -13,7 +13,7 @@ DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata))
  'lucasrossi90@gmail.com','ignacio.coluccio@gmail.com'].each do |mail|
   unless User.exists?(email: mail)
     User.create(email: mail, password: 'admin123', password_confirmation: 'admin123', profiles: ["0", "1"],
-                desarrollador: true)
+                desarrollador: true, confirmed_at: Time.now)
   end
 end
 

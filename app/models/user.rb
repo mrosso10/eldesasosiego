@@ -6,6 +6,9 @@
 #
 #  id                     :bigint           not null, primary key
 #  activo                 :boolean          default(TRUE)
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
 #  desarrollador          :boolean          default(FALSE)
 #  edad                   :integer
 #  email                  :string           default(""), not null
@@ -15,6 +18,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -27,7 +31,7 @@ class User < ApplicationRecord
   audited
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :async, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
   enumerize :profile_type, in: { admin: 0, user: 1 }
