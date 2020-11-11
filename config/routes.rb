@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :posts
-  end
-  namespace :admin do
-    resources :post_categories
-  end
+
   mount Sidekiq::Web => "/sidekiq" # monitoring console
   mount PgRails::Engine => '/pg_rails'
   mount PgMantenimiento::Engine => "/pg_mantenimiento"
@@ -13,6 +8,7 @@ Rails.application.routes.draw do
     get 'login_as', to: 'home#login_as'
     root to: "static_pages#home"
     resources :messages, only: [:create]
+    resources :contactos
 
     scope controller: :static_pages do
       get :home

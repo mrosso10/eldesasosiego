@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_203337) do
+ActiveRecord::Schema.define(version: 2020_11_09_114856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "admin_post_categories", force: :cascade do |t|
     t.string "nombre"
@@ -64,6 +65,17 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+  create_table "contactos", force: :cascade do |t|
+    t.string "nombre", null: false
+    t.string "email", null: false
+    t.string "mensaje", null: false
+    t.string "ip", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contactos_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "alt"
     t.string "hint"
@@ -85,10 +97,6 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.boolean "desarrollador", default: false
     t.string "nombre"
     t.string "profiles"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -98,4 +106,5 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
   add_foreign_key "admin_posts", "admin_post_categories", column: "post_category_id"
   add_foreign_key "admin_posts", "users", column: "actualizado_por_id"
   add_foreign_key "admin_posts", "users", column: "creado_por_id"
+  add_foreign_key "contactos", "users"
 end

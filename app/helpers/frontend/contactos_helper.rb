@@ -1,0 +1,2 @@
+module Frontend::ContactosHelper
+end
