@@ -80,7 +80,7 @@ module Admin
                         [:activo, 'activo'],
                         [:slug, 'slug'],
                         [:contenido, 'contenido'],
-                        [:post_category, 'post_category_id'],
+                        [:post_category, 'post_category_id']
                       ])
       end
 

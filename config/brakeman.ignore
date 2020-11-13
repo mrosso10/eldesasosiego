@@ -1,0 +1,68 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "5b6d1e6761f1143ea0d5062738d87d815ab1d30fbcaa842a465d138928c394b6",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/frontend/static_pages/blog.html.slim",
+      "line": 6,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Admin::Post.activos.last.contenido",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Frontend::StaticPagesController",
+          "method": "blog",
+          "line": 27,
+          "file": "app/controllers/frontend/static_pages_controller.rb",
+          "rendered": {
+            "name": "frontend/static_pages/blog",
+            "file": "app/views/frontend/static_pages/blog.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "frontend/static_pages/blog"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "e7f63cf1cb86e2d33d16a51b0b2d5f917c2f086f7873647e11e7054f15aa92f7",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/admin/posts/show.html.slim",
+      "line": 43,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "(Admin::Post.new(post_params) or Admin::Post.friendly.find(params[:id])).decorate.contenido",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Admin::PostsController",
+          "method": "show",
+          "line": 34,
+          "file": "app/controllers/admin/posts_controller.rb",
+          "rendered": {
+            "name": "admin/posts/show",
+            "file": "app/views/admin/posts/show.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "admin/posts/show"
+      },
+      "user_input": "Admin::Post.friendly.find(params[:id])",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2020-11-10 03:32:13 -0300",
+  "brakeman_version": "4.10.0"
+}

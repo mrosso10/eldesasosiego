@@ -63,13 +63,14 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
   let(:valid_session) { {} }
 
   let(:user) { create :user, :admin }
+
   before do
     sign_in user
   end
 
   describe 'GET #index' do
     it 'returns a success response' do
-      create(:post_category)
+      create(:admin_post_category)
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -77,7 +78,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      post_category = create(:post_category)
+      post_category = create(:admin_post_category)
       get :show, params: { id: post_category.to_param }, session: valid_session
       expect(response).to be_successful
     end
@@ -92,7 +93,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'GET #edit' do
     it 'returns a success response' do
-      post_category = create(:post_category)
+      post_category = create(:admin_post_category)
       get :edit, params: { id: post_category.to_param }, session: valid_session
       expect(response).to be_successful
     end
@@ -120,7 +121,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
       end
 
       it 'updates the requested admin_post_category' do
-        post_category = create(:post_category)
+        post_category = create(:admin_post_category)
         put :update, params: { id: post_category.to_param, admin_post_category: new_attributes },
                      session: valid_session
         post_category.reload
@@ -128,7 +129,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
       end
 
       it 'redirects to the admin_post_category' do
-        post_category = create(:post_category)
+        post_category = create(:admin_post_category)
         put :update, params: { id: post_category.to_param, admin_post_category: valid_attributes },
                      session: valid_session
         expect(response).to redirect_to(post_category)
@@ -138,14 +139,14 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested admin_post_category' do
-      post_category = create(:post_category)
+      post_category = create(:admin_post_category)
       expect do
         delete :destroy, params: { id: post_category.to_param }, session: valid_session
       end.to change(Admin::PostCategory.without_deleted, :count).by(-1)
     end
 
     it 'redirects to the admin_post_categories list' do
-      post_category = create(:post_category)
+      post_category = create(:admin_post_category)
       delete :destroy, params: { id: post_category.to_param }, session: valid_session
       expect(response).to redirect_to(admin_post_categories_url)
     end

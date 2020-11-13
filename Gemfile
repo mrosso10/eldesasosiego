@@ -63,6 +63,7 @@ group :development do
   gem "listen", ">= 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem 'spring-commands-rspec'
   gem "terminal-notifier", require: false
   gem "terminal-notifier-guard", require: false
   gem "web-console", ">= 3.3.0"
@@ -79,7 +80,10 @@ group :development, :test do
   gem "rubocop-minitest", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  gem 'rspec-rails', '~> 3.5'
+  gem "rubocop-rspec", require: false
+  gem 'rspec-rails', '~> 4.0'
+  gem 'fuubar'
+
   gem 'faker'
   gem 'slim_lint'
 end
@@ -91,6 +95,8 @@ group :test do
   gem "shoulda-context"
   gem "shoulda-matchers"
   gem "webdrivers"
+
+  gem 'simplecov', '~> 0.17.1'
 end
 
 gem 'tinymce-rails'
