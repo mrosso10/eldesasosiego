@@ -81,8 +81,9 @@ jobs:
             bundle exec rspec
             ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
 workflows:
-  version: 2
   commit-workflow:
     jobs:
       - static_analysis
-      - test
+      - test:
+          requires:
+            - static_analysis
