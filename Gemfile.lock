@@ -615,6 +615,7 @@ DEPENDENCIES
   rails-assets-typeahead.js!
   recaptcha
   redis (~> 4.0)
+  rollbar
   rspec-rails (~> 4.0)
   rubocop
   rubocop-minitest

@@ -109,3 +109,5 @@ gem "fog-aws"
 gem 'friendly_id', '~> 5.2.4'
 gem "recaptcha"
 gem 'browser', '2.0.3'
+
+gem 'rollbar'
