@@ -13,6 +13,8 @@ Creada con https://github.com/mattbrictson/rails-template
 This project requires:
 
 * Ruby 2.6.3, preferably managed using [rbenv][]
+* libmagic-dev (en Ubuntu `sudo apt install -y libmagic-dev`)
+* Node.js >= 10 ([Instalar en Ubuntu](https://github.com/nodesource/distributions/blob/master/README.md#debinstall))
 * Chromedriver for Capybara testing
 * PostgreSQL must be installed and accepting connections
 * [Redis][] must be installed and running on localhost with the default port
