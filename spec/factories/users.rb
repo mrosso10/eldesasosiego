@@ -37,7 +37,7 @@ FactoryBot.define do
     confirmed_at { Time.zone.yesterday }
 
     trait :admin do
-      profiles { %w(0) }
+      profiles { %w[0] }
     end
   end
 end
