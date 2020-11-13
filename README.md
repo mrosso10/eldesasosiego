@@ -34,7 +34,8 @@ create role template_pg password 'template_pg' login superuser;
 
 ### bin/setup
 
-Run the `bin/setup` script. This script will:
+1. Instalar overcommit `gem install overcommit`
+2. Ejecutar el script `bin/setup`. This script will:
 
 * Check you have the required Ruby version
 * Install dependencies using Bundler
@@ -43,12 +44,12 @@ Run the `bin/setup` script. This script will:
 
 ### Run it!
 
-<!--
-  TODO:
-  1. Run `bin/rake` to run all tests and lint checks. -->
-1. Start the app with `bundle exec rails server`
+1. Correr los linters con `overcommit -r`
+2. Correr los tests con `bundle exec rspec`
+3. Instalar foreman `gem install foreman`
+4. Levantar el servidor local con `foreman start`
 
-Access the app at <http://localhost:3000/>.
+Acceder a la app en <http://localhost:3000/>.
 
 ## Deployment
 
