@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/programandoarg/pg_template.svg?style=shield&circle-token=742874aa9019950a5755d89184e6eabe0e6d1855)](https://circleci.com/gh/programandoarg/pg_template)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c5410ac4a17c846a121e/maintainability)](https://codeclimate.com/repos/5fadf053541ba101b500a47b/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c5410ac4a17c846a121e/test_coverage)](https://codeclimate.com/repos/5fadf053541ba101b500a47b/test_coverage)
+
 # pg_template
 
 Plantilla para crear una app Rails.
