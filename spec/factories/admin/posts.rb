@@ -35,7 +35,7 @@ FactoryBot.define do
     activo { Faker::Boolean.boolean }
     slug { Faker::Lorem.sentence }
     contenido { Faker::Lorem.sentence }
-    association :post_category, factory: :post_category
+    association :post_category, factory: :admin_post_category
 
     trait :post_category_existente do
       post_category { nil }

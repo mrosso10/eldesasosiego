@@ -59,7 +59,7 @@ RSpec.describe Admin::PostsController, type: :controller do
   # Admin::Post. As you add validations to Admin::Post, be sure to
   # adjust the attributes here as well.
 
-  let(:post_category) { create :post_category }
+  let(:post_category) { create :admin_post_category }
 
   let(:valid_attributes) do
     attributes_for(:admin_post).merge(post_category_id: post_category.id)
@@ -83,7 +83,7 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe 'GET #index' do
     it 'returns a success response' do
-      create(:post)
+      create(:admin_post)
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -91,8 +91,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      post = create(:post)
-      get :show, params: { id: post.to_param }, session: valid_session
+      post = create(:admin_post)
+      get :show, params: { id: post.id }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -106,8 +106,8 @@ RSpec.describe Admin::PostsController, type: :controller do
 
   describe 'GET #edit' do
     it 'returns a success response' do
-      post = create(:post)
-      get :edit, params: { id: post.to_param }, session: valid_session
+      post = create(:admin_post)
+      get :edit, params: { id: post.id }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -141,42 +141,42 @@ RSpec.describe Admin::PostsController, type: :controller do
       end
 
       it 'updates the requested admin_post' do
-        post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: new_attributes },
+        post = create(:admin_post)
+        put :update, params: { id: post.id, admin_post: new_attributes },
                      session: valid_session
         post.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the admin_post' do
-        post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: valid_attributes },
+        post = create(:admin_post)
+        put :update, params: { id: post.id, admin_post: valid_attributes },
                      session: valid_session
-        expect(response).to redirect_to(post)
+        expect(response).to redirect_to(post.reload)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        post = create(:post)
-        put :update, params: { id: post.to_param, admin_post: invalid_attributes },
+        post = create(:admin_post)
+        put :update, params: { id: post.id, admin_post: invalid_attributes },
                      session: valid_session
-        expect(response).to be_successful
+        expect(response).not_to be_successful
       end
     end
   end
 
   describe 'DELETE #destroy' do
     it 'destroys the requested admin_post' do
-      post = create(:post)
+      post = create(:admin_post)
       expect do
-        delete :destroy, params: { id: post.to_param }, session: valid_session
+        delete :destroy, params: { id: post.id }, session: valid_session
       end.to change(Admin::Post.without_deleted, :count).by(-1)
     end
 
     it 'redirects to the admin_posts list' do
-      post = create(:post)
-      delete :destroy, params: { id: post.to_param }, session: valid_session
+      post = create(:admin_post)
+      delete :destroy, params: { id: post.id }, session: valid_session
       expect(response).to redirect_to(admin_posts_url)
     end
   end

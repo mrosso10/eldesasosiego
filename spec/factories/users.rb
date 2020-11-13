@@ -30,5 +30,14 @@
 
 FactoryBot.define do
   factory :user do
+    email { Faker::Internet.email }
+    nombre { Faker::Name.name }
+    password { 'password' }
+    password_confirmation { 'password' }
+    confirmed_at { Time.zone.yesterday }
+
+    trait :admin do
+      profiles { %w(0) }
+    end
   end
 end
