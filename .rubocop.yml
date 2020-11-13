@@ -1,7 +1,6 @@
 # This is the configuration used to check the rubocop source code.
 
-# TODO: activar
-# require: rubocop-rspec
+require: rubocop-rspec
 
 Layout/LineLength:
   Max: 100
@@ -22,14 +21,14 @@ Metrics/ModuleLength:
 Metrics/ClassLength:
   Max: 210
 
-# RSpec/MultipleMemoizedHelpers:
-#   Enabled: false
-# RSpec/ContextWording:
-#   Enabled: false
-# RSpec/NestedGroups:
-#   Max: 7
-# RSpec/MultipleExpectations:
-#   Max: 5
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+RSpec/NestedGroups:
+  Max: 7
+RSpec/MultipleExpectations:
+  Max: 5
 
 Lint/AmbiguousBlockAssociation:
   Enabled: false

@@ -80,6 +80,7 @@ group :development, :test do
   gem "rubocop-minitest", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
   gem 'rspec-rails', '~> 4.0'
   gem 'fuubar'
 

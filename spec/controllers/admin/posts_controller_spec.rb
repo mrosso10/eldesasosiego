@@ -77,6 +77,7 @@ RSpec.describe Admin::PostsController, type: :controller do
   let(:valid_session) { {} }
 
   let(:user) { create :user, :admin }
+
   before do
     sign_in user
   end
