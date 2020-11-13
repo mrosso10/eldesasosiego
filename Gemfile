@@ -81,6 +81,7 @@ group :development, :test do
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem 'rspec-rails', '~> 4.0'
+  gem 'fuubar'
 
   gem 'faker'
   gem 'slim_lint'
