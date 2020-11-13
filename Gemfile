@@ -93,6 +93,8 @@ group :test do
   gem "shoulda-context"
   gem "shoulda-matchers"
   gem "webdrivers"
+
+  gem 'simplecov', '~> 0.17.1'
 end
 
 gem 'tinymce-rails'

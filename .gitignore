@@ -31,6 +31,7 @@ yarn-debug.log*
 # Ignore test reports.
 /brakeman-output.*
 /test/reports/
+coverage/
 /capybara-*.html
 
 # Never check passwords into source control!
