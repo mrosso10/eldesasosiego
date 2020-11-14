@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.3"
+ruby "2.7.1"
 
 gem "active_type"
 gem "autoprefixer-rails"
@@ -22,6 +22,8 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem "sidekiq"
 gem "turbolinks", "~> 5"
 
+# Text from PDFs
+gem 'pdf-reader'
 
 gem 'slim-rails'
 gem 'chosen-rails'
