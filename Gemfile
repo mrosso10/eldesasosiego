@@ -24,6 +24,7 @@ gem "turbolinks", "~> 5"
 
 # Text from PDFs
 gem 'pdf-reader'
+gem 'rtesseract'
 
 gem 'slim-rails'
 gem 'chosen-rails'
