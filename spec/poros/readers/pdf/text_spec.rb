@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Readers::Pdf::Text do
   subject(:reader) { described_class.new(file) }
+
   let(:file) { file_fixture('example.pdf') }
 
   describe '#text' do
