@@ -1,6 +1,6 @@
-<%  byebug
-if @contacto.errors.empty? %>
-PgRails.showToast('Mensaje Enviado. Gracias por contactarnos.');
+<%  if @contacto.errors.empty? %>
+$('.collapsable').collapse()
+
 
 <% else %>
 PgRails.showToast('Hubo un error en el envío de mensaje, por favor complete los campos obligatorios.');
