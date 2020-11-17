@@ -1,33 +1,35 @@
-class Frontend::ContactosController < ApplicationController
 
-layout "frontend"
+module Frontend
+	class ContactosController < FrontendController
+	layout "frontend"
 
-	def new
-		@contacto = Contacto.new
-	end
-
-	def create
-		@contacto = Contacto.new(contacto_params)
-
-		unless success
-	        flash[:error] = 'Debe completar el captcha.'
-	        redirect_to root_path
-	        return
-	    end
-
-	    if @contacto.save?
-	        MessageMailer.message_me(@message).deliver_now
-	        flash[:info] = 'Mensaje Enviado. Gracias por contactarnos.'
-	    else
-	        flash[:error] = 'Hubo un error en el envío de mensaje, '\
-	                        'por favor complete los campos obligatorios.'
-	    end
-	      redirect_to root_path
-	end
-
-	private
-	
-		def contacto_params
-			params.require(:contacto).permit(:nombre, :email, :mensaje, :ip, :user_id)
+		def new
+			@contacto = Contacto.new
 		end
+
+		def create
+			@contacto = Contacto.new(contacto_params)
+
+	        @captcha_success = verify_recaptcha(model: @contacto, action: 'create')
+			
+			unless @captcha_success
+				respond_to :js
+	       	 	return
+		    end
+
+		    @contacto.ip = 'la.de.tu.vieja'
+		    @contacto.user_id = current_user
+
+		    if @contacto.save
+		    	byebug
+		        MessageMailer.message_me(@message).deliver_later
+				respond_to :js
+			end
+		end
+
+		private		
+			def contacto_params
+				params.require(:contacto).permit(:nombre, :email, :mensaje, :ip, :user_id)
+			end
+	end
 end
