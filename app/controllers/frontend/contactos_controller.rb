@@ -21,8 +21,7 @@ module Frontend
 		    @contacto.user_id = current_user
 
 		    if @contacto.save
-		    	byebug
-		        MessageMailer.message_me(@message).deliver_later
+		    	MessageMailer.message_me(@message).deliver_later
 				respond_to :js
 			end
 		end
