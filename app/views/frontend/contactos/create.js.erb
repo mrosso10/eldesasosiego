@@ -1,10 +1,12 @@
 <%  if @contacto.errors.empty? %>
-$('.collapse-show').collapse();
+$('.form-contacto').collapse('hide');
+$('.mensaje-contacto').collapse('show');
 
 <% else %>
-PgRails.showToast('Hubo un error en el envío de mensaje, por favor complete los campos obligatorios.');
+
+PgRails.showToast("<%= @contacto.errors.full_messages.join(", ") %>", 'Hubo un error');
 <% end %>
 
 <% if @captcha_success == 'false' %>
-PgRails.showToast('Debe completar el captcha.');
+PgRails.showToast('Hubo un error en el envío de mensaje. Intente nuevamente, por favor.');
 <% end %>

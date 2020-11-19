@@ -32,6 +32,5 @@ FactoryBot.define do
       user { nil }
       user_id { User.all.pluck(:id).sample }
     end
-
   end
 end

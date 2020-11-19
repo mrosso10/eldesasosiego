@@ -1,5 +1,5 @@
-.container data-toggle="collapse" class="collapse-show"
-  .row 
+.container 
+  .row.collapse.show.form-contacto
     .col-sm-12.col-md-4
       = simple_form_for @contacto, remote: true do |f|
         = f.input :nombre
@@ -8,3 +8,8 @@
         = recaptcha_v3(action: "create", secret_key: ENV['RECAPTCHA_SECRET_KEY'])
 		= hidden_field_tag 'authenticity_token', form_authenticity_token
         = f.submit 'Enviar'
+
+  .row.collapse.mensaje-contacto
+    .col-sm-12.col-md-4
+      .div Gracias por su mensaje
+      .div Lo leeremos y responderemos lo antes posible

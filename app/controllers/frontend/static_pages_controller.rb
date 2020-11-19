@@ -15,11 +15,6 @@ module Frontend
       @title = 'Home'
     end
 
-    def contacto
-      @title = 'Contacto'
-      @message = Message.new
-    end
-
     def blog
       @post = Admin::Post.activos.last
       @title = @post.titulo if @post.present?

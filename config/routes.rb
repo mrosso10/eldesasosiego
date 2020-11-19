@@ -7,12 +7,10 @@ Rails.application.routes.draw do
   scope module: 'frontend' do
     get 'login_as', to: 'home#login_as'
     root to: "static_pages#home"
-    resources :messages, only: [:create]
     resources :contactos
 
     scope controller: :static_pages do
       get :home
-      get :contacto
       get :blog
       get "/blog/:id", to: "static_pages#show_post"
     end
