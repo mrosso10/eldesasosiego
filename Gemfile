@@ -36,7 +36,7 @@ gem 'devise-i18n-views'
 gem 'devise_invitable'
 
 
-gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
+gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', ref: '7230bb4'
 
 
 # gem 'pg_rails', path: '/proyectos/pg_rails'
