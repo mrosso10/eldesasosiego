@@ -118,7 +118,8 @@ gem 'tinymce-rails'
 
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'carrierwave-magic'
-gem "fog-aws"
+gem "carrierwave-aws"
+
 gem 'friendly_id', '~> 5.2.4'
 gem "recaptcha"
 gem 'browser', '2.0.3'
