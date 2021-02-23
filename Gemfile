@@ -57,6 +57,17 @@ group :production do
 end
 
 group :development do
+  gem "capistrano", "~> 3.6"
+  gem "capistrano3-puma"
+  gem "capistrano-bundler"
+  gem "capistrano-postgresql", "~> 4.2.0"
+  gem "capistrano-rails", "~> 1.1"
+  gem "capistrano-rails-db"
+  gem "capistrano-rake"
+  gem "capistrano-rbenv", "~> 2.0"
+  gem "capistrano-rbenv-vars"
+  gem "capistrano-sidekiq"
+  
   gem "amazing_print"
   gem "annotate"
   gem "guard", require: false
