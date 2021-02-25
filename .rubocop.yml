@@ -23,12 +23,21 @@ Metrics/ClassLength:
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
 RSpec/ContextWording:
   Enabled: false
 RSpec/NestedGroups:
   Max: 7
 RSpec/MultipleExpectations:
   Max: 5
+RSpec/ExampleLength:
+  Max: 8
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/*'
 
 Lint/AmbiguousBlockAssociation:
   Enabled: false
