@@ -146,7 +146,7 @@ RSpec.describe Admin::PostsController, type: :controller do
         put :update, params: { id: post.id, admin_post: new_attributes },
                      session: valid_session
         post.reload
-        skip('Add assertions for updated state')
+        expect(post.titulo).to eq new_attributes[:titulo]
       end
 
       it 'redirects to the admin_post' do

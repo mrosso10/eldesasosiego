@@ -125,7 +125,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
         put :update, params: { id: post_category.to_param, admin_post_category: new_attributes },
                      session: valid_session
         post_category.reload
-        skip('Add assertions for updated state')
+        expect(post_category.nombre).to eq new_attributes[:nombre]
       end
 
       it 'redirects to the admin_post_category' do
