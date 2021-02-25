@@ -1,28 +1,26 @@
+# frozen_string_literal: true
+
 module Frontend
   class ContactosController < FrontendController
-    layout "frontend"
+    layout 'frontend'
 
     def new
       @contacto = Contacto.new
     end
 
     def create
+      @mensaje_error = 'Hubo un error en el envío de mensaje. Intente nuevamente, por favor.'
       @contacto = Contacto.new(contacto_params)
 
-      @captcha_success = verify_recaptcha(model: @contacto, action: 'create')
-
-      unless @captcha_success
-        respond_to :js
-        return
-      end
+      verify_recaptcha(model: @contacto, action: 'create')
 
       @contacto.ip = request.remote_ip
-      @contacto.user_id = current_user
+      @contacto.user = current_user
 
-      if @contacto.save
-        MessageMailer.message_me(@message).deliver_later
-        respond_to :js
-      end
+      MessageMailer.message_me(@message).deliver_later if @contacto.errors.empty? && @contacto.save
+    rescue StandardError => e
+      Rollbar.error(e)
+      render js: "PgRails.error_toast('#{@mensaje_error}');"
     end
 
     private

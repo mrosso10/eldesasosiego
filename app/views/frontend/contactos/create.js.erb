@@ -1,12 +1,6 @@
-<%  if @contacto.errors.empty? %>
-$('.form-contacto').collapse('hide');
-$('.mensaje-contacto').collapse('show');
-
+<% if @contacto.persisted? %>
+  $('.form-contacto').collapse('hide');
+  $('.mensaje-contacto').collapse('show');
 <% else %>
-
-PgRails.showToast("<%= @contacto.errors.full_messages.join(", ") %>", 'Hubo un error');
-<% end %>
-
-<% if @captcha_success == 'false' %>
-PgRails.showToast('Hubo un error en el envío de mensaje. Intente nuevamente, por favor.');
+  PgRails.error_toast("<%= @mensaje_error %>");
 <% end %>
