@@ -8,11 +8,10 @@ Rails.application.routes.draw do
     get 'login_as', to: 'home#login_as'
     root to: "static_pages#home"
     resources :contactos
+    resources :posts, path: 'noticias', only: [:index, :show]
 
     scope controller: :static_pages do
       get :home
-      get :blog
-      get "/blog/:id", to: "static_pages#show_post"
     end
 
   end

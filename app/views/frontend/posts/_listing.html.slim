@@ -1,0 +1,14 @@
+- unless smart_listing.empty?
+  ul
+    - smart_listing.collection.each do |noticia|
+      li
+        = link_to '', post_path(noticia), class: 'nc-img'
+        = link_to noticia.titulo, post_path(noticia), class: 'nc-title'
+
+  = paginate smart_listing.collection,
+            theme: 'frontend',
+            param_name: smart_listing.instancia.param_name(:page)
+
+- else
+  .col-lg-12
+    p Aún no hay noticias públicadas

@@ -33,8 +33,10 @@ FactoryBot.define do
   factory :admin_post, class: 'Admin::Post' do
     titulo { Faker::Lorem.sentence }
     activo { Faker::Boolean.boolean }
-    slug { Faker::Lorem.sentence }
-    contenido { Faker::Lorem.sentence }
+    slug { Faker::Lorem.word }
+    contenido do
+      (1..5).map { Faker::Lorem.paragraph(sentence_count: 30) }.join('<br><br><br>')
+    end
     association :post_category, factory: :admin_post_category
 
     trait :post_category_existente do

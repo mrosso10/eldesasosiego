@@ -12,8 +12,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         = link_to new_contacto_path, class: "nav-link" do
           | Contacto
       li.nav-item
-        = link_to blog_path, class: "nav-link" do
-          | Blog
+        = link_to posts_path, class: "nav-link" do
+          | Noticias
     ul.navbar-nav
       - if current_user.present?
 
