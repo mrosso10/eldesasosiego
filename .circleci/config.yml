@@ -15,7 +15,7 @@ executors:
           POSTGRES_USER: template_pg
           POSTGRES_DB: template_pg_test
           POSTGRES_PASSWORD: template_pg
-
+      - image: circleci/redis
 commands:
   bundle_install:
     description: Install Ruby dependencies with Bundler
