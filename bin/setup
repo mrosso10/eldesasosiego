@@ -6,7 +6,7 @@ def setup!
     run  "gem install bundler #{bundler_ver_arg} --no-document --conservative"
     run  "bundle check || bundle install"
     # run  "bin/yarn install" if File.exist?("yarn.lock")
-    run  "overcommit --install" if overcommit_present?
+    # run  "overcommit --install" if overcommit_present?
     copy "example.env", ".env.development"
     test_local_env_contains_required_keys
     run  "bundle exec rake tmp:create"
@@ -28,9 +28,9 @@ def within_project_root(&block)
   Dir.chdir(File.expand_path("..", __dir__), &block)
 end
 
-def overcommit_present?
-  system("which overcommit > /dev/null 2>&1")
-end
+# def overcommit_present?
+#   system("which overcommit > /dev/null 2>&1")
+# end
 
 def test(opts)
   command, output = opts.first
