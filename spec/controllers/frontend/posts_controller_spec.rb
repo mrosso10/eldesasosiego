@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Frontend::PostsController, type: :controller do
   describe 'GET #index' do
     it 'returns a success response' do
-      create(:admin_post)
+      create(:post)
       get :index
       expect(response).to be_successful
     end
@@ -13,7 +13,7 @@ RSpec.describe Frontend::PostsController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      post = create(:admin_post)
+      post = create(:post)
       get :show, params: { id: post.id }
       expect(response).to be_successful
     end

@@ -23,14 +23,8 @@
 #  fk_rails_...  (creado_por_id => users.id)
 #
 
-module Admin
-  class PostCategory < ApplicationRecord
-    audited
-    acts_as_paranoid without_default_scope: true
-
-    belongs_to :creado_por, optional: true, class_name: 'User'
-    belongs_to :actualizado_por, optional: true, class_name: 'User'
-
-    has_many :posts, class_name: 'Admin::Post', foreign_key: 'post_category_id'
+FactoryBot.define do
+  factory :post_category, class: 'PostCategory' do
+    nombre { Faker::Lorem.sentence }
   end
 end

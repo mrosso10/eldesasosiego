@@ -14,8 +14,8 @@ module Navbar
     [
       { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
         { title: 'Categorías', path: main_app.admin_post_categories_path,
-          show: policy(Admin::PostCategory).index? },
-        { title: 'Posteos', path: main_app.admin_posts_path, show: policy(Admin::Post).index? }
+          show: policy(PostCategory).index? },
+        { title: 'Posteos', path: main_app.admin_posts_path, show: policy(Post).index? }
       ] },
       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
         { title: 'Usuarios', path: main_app.admin_users_path,

@@ -9,10 +9,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           | Home
           span.sr-only (current)
       li.nav-item
-        = link_to new_contacto_path, class: "nav-link" do
+        = link_to new_frontend_contacto_path, class: "nav-link" do
           | Contacto
       li.nav-item
-        = link_to posts_path, class: "nav-link" do
+        = link_to frontend_posts_path, class: "nav-link" do
           | Noticias
     ul.navbar-nav
       - if current_user.present?

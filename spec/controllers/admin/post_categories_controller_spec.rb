@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: admin_post_categories
+# Table name: post_categories
 #
 #  id                 :bigint           not null, primary key
 #  deleted_at         :datetime
@@ -14,8 +14,8 @@
 #
 # Indexes
 #
-#  index_admin_post_categories_on_actualizado_por_id  (actualizado_por_id)
-#  index_admin_post_categories_on_creado_por_id       (creado_por_id)
+#  index_post_categories_on_actualizado_por_id  (actualizado_por_id)
+#  index_post_categories_on_creado_por_id       (creado_por_id)
 #
 # Foreign Keys
 #
@@ -48,18 +48,18 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe Admin::PostCategoriesController, type: :controller do
+RSpec.describe Admin::PostCategoriesController do
   # This should return the minimal set of attributes required to create a valid
-  # Admin::PostCategory. As you add validations to Admin::PostCategory, be sure to
+  # PostCategory. As you add validations to PostCategory, be sure to
   # adjust the attributes here as well.
 
   let(:valid_attributes) do
-    attributes_for(:admin_post_category)
+    attributes_for(:post_category)
   end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # Admin::PostCategoriesController. Be sure to keep this updated too.
+  # PostCategoriesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   let(:user) { create :user, :admin }
@@ -70,7 +70,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'GET #index' do
     it 'returns a success response' do
-      create(:admin_post_category)
+      create(:post_category)
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -78,7 +78,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      post_category = create(:admin_post_category)
+      post_category = create(:post_category)
       get :show, params: { id: post_category.to_param }, session: valid_session
       expect(response).to be_successful
     end
@@ -93,7 +93,7 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'GET #edit' do
     it 'returns a success response' do
-      post_category = create(:admin_post_category)
+      post_category = create(:post_category)
       get :edit, params: { id: post_category.to_param }, session: valid_session
       expect(response).to be_successful
     end
@@ -101,15 +101,15 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
 
   describe 'POST #create' do
     context 'with valid params' do
-      it 'creates a new Admin::PostCategory' do
+      it 'creates a new PostCategory' do
         expect do
-          post :create, params: { admin_post_category: valid_attributes }, session: valid_session
-        end.to change(Admin::PostCategory, :count).by(1)
+          post :create, params: { post_category: valid_attributes }, session: valid_session
+        end.to change(PostCategory, :count).by(1)
       end
 
-      it 'redirects to the created admin_post_category' do
-        post :create, params: { admin_post_category: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Admin::PostCategory.last)
+      it 'redirects to the created post_category' do
+        post :create, params: { post_category: valid_attributes }, session: valid_session
+        expect(response).to redirect_to([:admin, PostCategory.last])
       end
     end
   end
@@ -117,36 +117,36 @@ RSpec.describe Admin::PostCategoriesController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        attributes_for(:admin_post_category)
+        attributes_for(:post_category)
       end
 
-      it 'updates the requested admin_post_category' do
-        post_category = create(:admin_post_category)
-        put :update, params: { id: post_category.to_param, admin_post_category: new_attributes },
+      it 'updates the requested post_category' do
+        post_category = create(:post_category)
+        put :update, params: { id: post_category.to_param, post_category: new_attributes },
                      session: valid_session
         post_category.reload
         expect(post_category.nombre).to eq new_attributes[:nombre]
       end
 
-      it 'redirects to the admin_post_category' do
-        post_category = create(:admin_post_category)
-        put :update, params: { id: post_category.to_param, admin_post_category: valid_attributes },
+      it 'redirects to the post_category' do
+        post_category = create(:post_category)
+        put :update, params: { id: post_category.to_param, post_category: valid_attributes },
                      session: valid_session
-        expect(response).to redirect_to(post_category)
+        expect(response).to redirect_to([:admin, post_category])
       end
     end
   end
 
   describe 'DELETE #destroy' do
-    it 'destroys the requested admin_post_category' do
-      post_category = create(:admin_post_category)
+    it 'destroys the requested post_category' do
+      post_category = create(:post_category)
       expect do
         delete :destroy, params: { id: post_category.to_param }, session: valid_session
-      end.to change(Admin::PostCategory.without_deleted, :count).by(-1)
+      end.to change(PostCategory.without_deleted, :count).by(-1)
     end
 
-    it 'redirects to the admin_post_categories list' do
-      post_category = create(:admin_post_category)
+    it 'redirects to the post_categories list' do
+      post_category = create(:post_category)
       delete :destroy, params: { id: post_category.to_param }, session: valid_session
       expect(response).to redirect_to(admin_post_categories_url)
     end

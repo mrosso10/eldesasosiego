@@ -2,8 +2,7 @@
   ul
     - smart_listing.collection.each do |noticia|
       li
-        = link_to '', post_path(noticia), class: 'nc-img'
-        = link_to noticia.titulo, post_path(noticia), class: 'nc-title'
+        = link_to noticia.titulo, frontend_post_path(noticia), class: 'nc-title'
 
   = paginate smart_listing.collection,
             theme: 'frontend',

@@ -5,7 +5,7 @@ module Frontend
     before_action :set_post, only: %i[show]
 
     def index
-      @noticias = Admin::Post.activos
+      @noticias = Post.activos
 
       smart_listing(:noticias, @noticias, 'listing', { page_sizes: [10] })
     end
@@ -22,7 +22,7 @@ module Frontend
     private
 
       def set_post
-        @post = Admin::Post.friendly.find(params[:id])
+        @post = Post.friendly.find(params[:id])
       end
   end
 end

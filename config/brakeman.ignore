@@ -9,7 +9,7 @@
       "file": "app/views/frontend/static_pages/blog.html.slim",
       "line": 6,
       "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
-      "code": "Admin::Post.activos.last.contenido",
+      "code": "Post.activos.last.contenido",
       "render_path": [
         {
           "type": "controller",
@@ -40,11 +40,11 @@
       "file": "app/views/admin/posts/show.html.slim",
       "line": 43,
       "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
-      "code": "(Admin::Post.new(post_params) or Admin::Post.friendly.find(params[:id])).decorate.contenido",
+      "code": "(Post.new(post_params) or Post.friendly.find(params[:id])).decorate.contenido",
       "render_path": [
         {
           "type": "controller",
-          "class": "Admin::PostsController",
+          "class": "PostsController",
           "method": "show",
           "line": 34,
           "file": "app/controllers/admin/posts_controller.rb",
@@ -58,7 +58,7 @@
         "type": "template",
         "template": "admin/posts/show"
       },
-      "user_input": "Admin::Post.friendly.find(params[:id])",
+      "user_input": "Post.friendly.find(params[:id])",
       "confidence": "Weak",
       "note": ""
     }

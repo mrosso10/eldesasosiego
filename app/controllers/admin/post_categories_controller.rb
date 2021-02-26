@@ -3,14 +3,14 @@
 # generado con pg_rails
 
 module Admin
-  class PostCategoriesController < ApplicationController
-    before_action { @clase_modelo = Admin::PostCategory }
+  class PostCategoriesController < AdminController
+    before_action { @clase_modelo = PostCategory }
 
-    before_action(only: :index) { authorize Admin::PostCategory }
+    before_action(only: :index) { authorize PostCategory }
 
     before_action :set_post_category, only: %i[new create show edit update destroy]
 
-    add_breadcrumb Admin::PostCategory.nombre_plural, :admin_post_categories_path
+    add_breadcrumb PostCategory.nombre_plural, :admin_post_categories_path
 
     def index
       @post_categories = filtros_y_policy [:nombre]
@@ -21,14 +21,14 @@ module Admin
         format.html { render_smart_listing }
         format.xlsx do
           render xlsx: 'download',
-                 filename: "#{Admin::PostCategory.nombre_plural.gsub(' ', '-').downcase}"\
+                 filename: "#{PostCategory.nombre_plural.gsub(' ', '-').downcase}"\
                            "-#{Date.today}.xlsx"
         end
       end
     end
 
     def show
-      add_breadcrumb @post_category, @post_category
+      add_breadcrumb @post_category, [:admin, @post_category]
 
       respond_to do |format|
         format.json { render json: @post_category }
@@ -37,19 +37,19 @@ module Admin
     end
 
     def new
-      add_breadcrumb "Crear #{Admin::PostCategory.nombre_singular.downcase}"
+      add_breadcrumb "Crear #{PostCategory.nombre_singular.downcase}"
     end
 
     def edit
-      add_breadcrumb @post_category
+      add_breadcrumb @post_category, [:admin, @post_category]
     end
 
     def create
       respond_to do |format|
         if @post_category.save
           format.html do
-            redirect_to @post_category,
-                        notice: "#{Admin::PostCategory.nombre_singular} creadx."
+            redirect_to [:admin, @post_category],
+                        notice: "#{PostCategory.nombre_singular} creadx."
           end
           format.json { render json: @post_category.decorate }
         else
@@ -63,8 +63,8 @@ module Admin
       respond_to do |format|
         if @post_category.save
           format.html do
-            redirect_to @post_category,
-                        notice: "#{Admin::PostCategory.nombre_singular} actualizadx."
+            redirect_to [:admin, @post_category],
+                        notice: "#{PostCategory.nombre_singular} actualizadx."
           end
           format.json { render json: @post_category.decorate }
         else
@@ -107,7 +107,7 @@ module Admin
         if action_name == 'new'
           params.permit(atributos_permitidos)
         else
-          params.require(:admin_post_category).permit(atributos_permitidos)
+          params.require(:post_category).permit(atributos_permitidos)
         end
       end
 

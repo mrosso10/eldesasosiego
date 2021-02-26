@@ -13,6 +13,6 @@ class AdminController < ApplicationController
 
     def check_admin
       redirect_to admin_root_path && return if current_user.admin?
-      redirect_to home_path && return
+      redirect_to root_path && return
     end
 end
