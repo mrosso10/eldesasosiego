@@ -9,6 +9,14 @@ class AdminController < ApplicationController
     @title = 'Panel de control'
   end
 
+  def login_as
+    if Rails.env.development? || desarrollador?
+      usuario = User.find(params[:id])
+      sign_in(:user, usuario)
+    end
+    redirect_to '/'
+  end
+
   private
 
     def check_admin

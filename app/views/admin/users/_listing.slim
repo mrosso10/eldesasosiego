@@ -20,7 +20,7 @@
               | &nbsp;
               - if desarrollador?
                 span rel="tooltip" title="Login"
-                  = link_to admin_login_as_path(id: user.id), class: 'btn btn-sm btn-info', target: '_blank' do
+                  = link_to login_as_path(id: user.id), class: 'btn btn-sm btn-info', target: '_blank' do
                     span.fa.fa-arrow-right
 - else
   p No hay usuarios para los filtros aplicados

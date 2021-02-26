@@ -24,10 +24,9 @@ Rails.application.routes.draw do
     resources :post_categories
     resources :posts
     root to: 'users#index'
-
-    get 'login_as', to: 'asd#login_as'
   end
 
-  post '/tinymce_assets' => 'tinymce_assets#create'
+  get 'login_as', to: 'admin#login_as'
 
+  post '/tinymce_assets' => 'tinymce_assets#create'
 end
