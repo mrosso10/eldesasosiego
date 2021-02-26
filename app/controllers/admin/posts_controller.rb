@@ -58,7 +58,9 @@ module Admin
     def update
       respond_to do |format|
         if @post.save
-          format.html { redirect_to [:admin, @post], notice: "#{Post.nombre_singular} actualizadx." }
+          format.html do
+            redirect_to [:admin, @post], notice: "#{Post.nombre_singular} actualizadx."
+          end
           format.json { render json: @post.decorate }
         else
           format.html { render :edit }

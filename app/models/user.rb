@@ -34,9 +34,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :async, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
-  enumerize :profile_type, in: { admin: 0, user: 1 }
-
   serialize :profiles, Array
+  enumerize :profiles, in: %i[admin cliente], multiple: true
 
   def to_s
     nombre_o_email
@@ -54,16 +53,7 @@ class User < ApplicationRecord
     end
   end
 
-  def profile_names
-    profiles.map { |profile_id| User.profile_types.invert[profile_id.to_i] }
-            .compact.map { |type| I18n.t("user_type.#{type}") }.join(', ')
-  end
-
   def admin?
-    profiles.include? User.profile_type.admin.value.to_s
-  end
-
-  def user?
-    profiles.include? User.profile_type.user.value.to_s
+    profiles.admin?
   end
 end

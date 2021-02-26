@@ -12,9 +12,6 @@
       .card-header
         h4 Perfiles
       .card-body
-        - User.profile_type.values.each do |profile|
-          .form-group
-            = f.check_box(:profiles, { multiple: true, class: 'i-checks', checked: @user.send("#{profile}?") }, [profile], nil)
-            = f.label profile
+        = f.input :profiles
 
     = f.button :submit, class: "btn btn-primary"
