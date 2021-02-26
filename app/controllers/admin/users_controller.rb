@@ -12,7 +12,7 @@ module Admin
       @title = 'Usuarios'
       scope = User.order(:nombre)
       scope = scope.where(desarrollador: false) unless desarrollador?
-      smart_listing(:users, scope, 'admin/users/listing')
+      smart_listing(:users, scope, 'listing')
     end
 
     def new
@@ -22,7 +22,7 @@ module Admin
     def create
       @user = User.new(user_params)
       if @user.save
-        redirect_with_notice(admin_users_path, 'Usuario creado correctamente')
+        redirect_to admin_users_path, notice: 'Usuario creado correctamente'
       else
         render action: 'new'
       end
