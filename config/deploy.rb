@@ -6,7 +6,7 @@ role :web, %w(ubuntu@ec2-18-219-198-49.us-east-2.compute.amazonaws.com)
 role :db, %w(ubuntu@ec2-18-219-198-49.us-east-2.compute.amazonaws.com)
 
 set :ssh_options,
-    keys: %w(~/keys/ec2-2017.pem), 
+    keys: %w(~/keys/ec2-2017.pem),
     forward_agent: false
 # port: 17341,
 # forward_agent: false,

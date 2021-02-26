@@ -67,7 +67,7 @@ group :development do
   gem "capistrano-rbenv", "~> 2.0"
   gem "capistrano-rbenv-vars"
   gem "capistrano-sidekiq"
-  
+
   gem "amazing_print"
   gem "annotate"
   gem "guard", require: false
