@@ -51,6 +51,7 @@ PreCommit:
     enabled: true
     exclude:
       - "**/db/structure.sql"
+      - "**/*.slim"
 
   YamlSyntax:
     enabled: true
