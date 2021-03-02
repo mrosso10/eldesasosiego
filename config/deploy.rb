@@ -51,7 +51,7 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w(.rbenv-vars token.yaml)
+set :linked_files, %w(.env.production)
 
 set :linked_dirs,  %w(log public/uploads public/system tmp/cache)
 

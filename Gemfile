@@ -65,7 +65,6 @@ group :development do
   gem "capistrano-rails-db"
   gem "capistrano-rake"
   gem "capistrano-rbenv", "~> 2.0"
-  gem "capistrano-rbenv-vars"
   gem "capistrano-sidekiq"
 
   gem "amazing_print"
@@ -82,12 +81,13 @@ group :development do
   gem "web-console", ">= 3.3.0"
 end
 
+gem "dotenv-rails"
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "byebug"
-  gem "dotenv-rails"
   gem "launchy"
   gem "rubocop", require: false
   gem "rubocop-minitest", require: false

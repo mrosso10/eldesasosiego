@@ -7,8 +7,8 @@ def setup!
     run  "bundle check || bundle install"
     # run  "bin/yarn install" if File.exist?("yarn.lock")
     # run  "overcommit --install" if overcommit_present?
-    copy "example.env", ".env.development"
-    test_local_env_contains_required_keys
+    # copy "example.env", ".env.development"
+    # test_local_env_contains_required_keys
     run  "bundle exec rake tmp:create"
     run  "bundle exec rake db:prepare"
     run  "bundle exec rake db:test:prepare"
@@ -76,16 +76,16 @@ def copy(source, dest)
   end
 end
 
-def test_local_env_contains_required_keys
-  keys = ->(f) { IO.readlines(f).map { |l| l[/^([^#\s][^=\s]*)/, 1] }.compact }
+# def test_local_env_contains_required_keys
+#   keys = ->(f) { IO.readlines(f).map { |l| l[/^([^#\s][^=\s]*)/, 1] }.compact }
 
-  log(:yellow, "test .env.development contents") do
-    missing = keys["example.env"] - keys[".env.development"]
-    if missing.any?
-      die("Your .env.development file is missing #{missing.join(', ')}")
-    end
-  end
-end
+#   log(:yellow, "test .env.development contents") do
+#     missing = keys["example.env"] - keys[".env.development"]
+#     if missing.any?
+#       die("Your .env.development file is missing #{missing.join(', ')}")
+#     end
+#   end
+# end
 
 def log(color, message, out=$stdout, &block)
   if defined?(HighLine::String)

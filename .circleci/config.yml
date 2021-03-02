@@ -42,8 +42,7 @@ commands:
       - run:
           name: Set Up Database
           command: |
-            cp example.env .env
-            bundle exec rake db:setup
+            bundle exec rake db:schema:load
 
 jobs:
   static_analysis:

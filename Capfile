@@ -38,7 +38,6 @@ install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rails'
 require 'capistrano/rbenv'
-require 'capistrano/rbenv_vars'
 require 'capistrano/bundler'
 require 'capistrano/rails/db'
 require 'capistrano/postgresql'
