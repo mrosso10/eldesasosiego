@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class MessageMailer < ApplicationMailer
-  # use your own email address here
-  default to: 'info@pg_template.com'
-
-  def message_me(msg)
-    @msg = msg
-    mail from: @msg.email
+  def message_me(contacto)
+    @contacto = contacto
+    mail to: ENV['MAIL_TO'], cc: ENV['MAIL_TO_CC'],
+         subject: 'Mensaje recibido a través de Web Lomas de Zamora'
   end
 end
