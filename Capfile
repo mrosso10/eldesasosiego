@@ -42,11 +42,14 @@ require 'capistrano/rbenv_vars'
 require 'capistrano/bundler'
 require 'capistrano/rails/db'
 require 'capistrano/postgresql'
-require 'capistrano/sidekiq'
 require 'capistrano/rake'
 
 require 'capistrano/puma'
 install_plugin Capistrano::Puma # Default puma tasks
+
+require 'capistrano/sidekiq'
+install_plugin Capistrano::Sidekiq
+install_plugin Capistrano::Sidekiq::Systemd
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

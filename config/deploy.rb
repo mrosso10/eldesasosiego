@@ -39,6 +39,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
 set :puma_default_hooks, -> { false }
 set :sidekiq_concurrency, 2
+set :sidekiq_service_unit_user, :system
 
 set :rbenv_ruby, File.read('.ruby-version').strip
 
