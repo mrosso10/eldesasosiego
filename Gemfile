@@ -112,8 +112,8 @@ group :test do
   gem 'simplecov', '~> 0.17.1'
 end
 
-gem 'tinymce-rails'
-#gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+gem 'tinymce-rails', '~> 4.0'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'

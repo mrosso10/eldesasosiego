@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/PerfectlyNormal/tinymce-rails-imageupload.git
+  revision: 1538ac779b8c42bd8521b3bcc20524f45a785f1c
+  specs:
+    tinymce-rails-imageupload (4.0.17.beta.3)
+      railties (>= 3.2)
+      tinymce-rails (~> 4.0)
+
+GIT
   remote: https://github.com/bernat/best_in_place
   revision: a3560e874444af8b2cf78419dc5eef020626c93c
   specs:
@@ -580,7 +588,7 @@ GEM
     terminal-notifier-guard (1.7.0)
     thor (1.1.0)
     tilt (2.0.10)
-    tinymce-rails (5.5.1)
+    tinymce-rails (4.9.11)
       railties (>= 3.1.1)
     ttfunk (1.6.2.1)
     turbolinks (5.2.1)
@@ -694,7 +702,8 @@ DEPENDENCIES
   sprockets-rails
   terminal-notifier
   terminal-notifier-guard
-  tinymce-rails
+  tinymce-rails (~> 4.0)
+  tinymce-rails-imageupload!
   turbolinks (~> 5)
   web-console (>= 3.3.0)
   webdrivers
