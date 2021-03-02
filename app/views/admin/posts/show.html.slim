@@ -40,4 +40,4 @@
   .card-header
     h4 Contenido
   .card-body
-    = raw @post.contenido
+    = sanitize @post.contenido.html_safe
