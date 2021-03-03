@@ -42,6 +42,7 @@ gem "best_in_place", git: "https://github.com/bernat/best_in_place"
 gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: 'b9290b4331be71ea2fec58747f135824a991f5cd'
 gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'bb24abd4146900211307c62a4af387e6363e0982'
 
+gem 'discard'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-handlebars'
