@@ -66,13 +66,8 @@ Acceder a la app en <http://localhost:3000/>.
 
 ## Deployment
 
-TODO: Chequear
-
 Ensure the following environment variables are set in the deployment environment:
 
-* `DATABASE_URL`
-* `RACK_ENV`
-* `RAILS_ENV`
 * `REDIS_URL`
 * `SECRET_KEY_BASE`
 
@@ -94,4 +89,3 @@ Optionally:
 [rbenv]:https://github.com/sstephenson/rbenv
 [redis]:http://redis.io
 [Homebrew]:http://brew.sh
-
