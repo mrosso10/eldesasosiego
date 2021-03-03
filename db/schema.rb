@@ -2,46 +2,19 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_203337) do
+ActiveRecord::Schema.define(version: 2021_03_03_235619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
-
-  create_table "post_categories", force: :cascade do |t|
-    t.string "nombre"
-    t.bigint "creado_por_id"
-    t.bigint "actualizado_por_id"
-    t.datetime "deleted_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["actualizado_por_id"], name: "index_post_categories_on_actualizado_por_id"
-    t.index ["creado_por_id"], name: "index_post_categories_on_creado_por_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "titulo"
-    t.boolean "activo"
-    t.string "slug"
-    t.text "contenido"
-    t.bigint "post_category_id", null: false
-    t.bigint "creado_por_id"
-    t.bigint "actualizado_por_id"
-    t.datetime "deleted_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["actualizado_por_id"], name: "index_posts_on_actualizado_por_id"
-    t.index ["creado_por_id"], name: "index_posts_on_creado_por_id"
-    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
-  end
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -84,6 +57,33 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.string "nombre"
+    t.bigint "creado_por_id"
+    t.bigint "actualizado_por_id"
+    t.datetime "discarded_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actualizado_por_id"], name: "index_post_categories_on_actualizado_por_id"
+    t.index ["creado_por_id"], name: "index_post_categories_on_creado_por_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "titulo"
+    t.boolean "activo"
+    t.string "slug"
+    t.text "contenido"
+    t.bigint "post_category_id", null: false
+    t.bigint "creado_por_id"
+    t.bigint "actualizado_por_id"
+    t.datetime "discarded_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actualizado_por_id"], name: "index_posts_on_actualizado_por_id"
+    t.index ["creado_por_id"], name: "index_posts_on_creado_por_id"
+    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -105,10 +105,10 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contactos", "users"
   add_foreign_key "post_categories", "users", column: "actualizado_por_id"
   add_foreign_key "post_categories", "users", column: "creado_por_id"
-  add_foreign_key "posts", "post_categories", column: "post_category_id"
+  add_foreign_key "posts", "post_categories"
   add_foreign_key "posts", "users", column: "actualizado_por_id"
   add_foreign_key "posts", "users", column: "creado_por_id"
-  add_foreign_key "contactos", "users"
 end

@@ -7,7 +7,7 @@
 #  id                 :bigint           not null, primary key
 #  activo             :boolean
 #  contenido          :text
-#  deleted_at         :datetime
+#  discarded_at       :datetime
 #  slug               :string
 #  titulo             :string
 #  created_at         :datetime         not null
@@ -26,7 +26,7 @@
 #
 #  fk_rails_...  (actualizado_por_id => users.id)
 #  fk_rails_...  (creado_por_id => users.id)
-#  fk_rails_...  (post_category_id => admin_post_categories.id)
+#  fk_rails_...  (post_category_id => post_categories.id)
 #
 
 class Post < ApplicationRecord
@@ -34,7 +34,7 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
-  acts_as_paranoid without_default_scope: true
+  include Discard::Model
 
   belongs_to :post_category, class_name: 'PostCategory'
 
@@ -43,7 +43,7 @@ class Post < ApplicationRecord
 
   validates_presence_of :titulo, :slug, :contenido
 
-  scope :activos, -> { without_deleted.where(activo: true) }
+  scope :activos, -> { kept.where(activo: true) }
 
   def to_s
     titulo

@@ -5,7 +5,7 @@
 # Table name: post_categories
 #
 #  id                 :bigint           not null, primary key
-#  deleted_at         :datetime
+#  discarded_at       :datetime
 #  nombre             :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -25,7 +25,8 @@
 
 class PostCategory < ApplicationRecord
   audited
-  acts_as_paranoid without_default_scope: true
+
+  include Discard::Model
 
   belongs_to :creado_por, optional: true, class_name: 'User'
   belongs_to :actualizado_por, optional: true, class_name: 'User'
