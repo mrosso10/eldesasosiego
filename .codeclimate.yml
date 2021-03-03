@@ -24,6 +24,11 @@ engines:
     exclude_paths:
     - "spec"
 
+checks:
+  method-complexity:
+    config:
+      threshold: 7
+
 ratings:
    paths:
    - "app/**/*"
@@ -32,3 +37,6 @@ ratings:
    - "Gemfile"
    - "Gemfile.lock"
    - "**.rb"
+
+exclude_patterns:
+  - "lib/puma/plugin/open.rb"

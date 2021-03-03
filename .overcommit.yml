@@ -58,8 +58,8 @@ PreCommit:
     exclude:
       - "test/fixtures/**/*.yml"
 
-  YarnCheck:
-    enabled: true
+  # YarnCheck:
+  #   enabled: true
 
 PostCheckout:
   ALL:
