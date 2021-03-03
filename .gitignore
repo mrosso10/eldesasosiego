@@ -37,6 +37,6 @@ coverage/
 # Never check passwords into source control!
 /config/master.key
 /.env.development
-.rbenv-vars
+/.env.production
 
 *.sublime-workspace

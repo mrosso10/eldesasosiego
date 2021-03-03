@@ -10,10 +10,10 @@ es:
         post_category_id: Categoría
         post_category: Categoría
     models:
-      admin/post:
+      post:
         one: Posteo
         other: Posteos
-      admin/post_category:
+      post_category:
         one: Categoría de posteo
         other: Categorías de posteos
     errors:

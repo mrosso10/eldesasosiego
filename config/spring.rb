@@ -3,7 +3,9 @@
 Spring.quiet = true
 Spring.watch(
   '.ruby-version',
-  '.rbenv-vars',
+  '.env',
+  '.env.development',
+  '.env.test',
   'tmp/restart.txt',
   'tmp/caching-dev.txt'
 )

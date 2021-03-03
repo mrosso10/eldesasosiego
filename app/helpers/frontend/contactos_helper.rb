@@ -1,2 +1,6 @@
-module Frontend::ContactosHelper
+# frozen_string_literal: true
+
+module Frontend
+  module ContactosHelper
+  end
 end

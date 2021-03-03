@@ -28,15 +28,15 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  audited
+  audited except: :remember_created_at
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :async, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
-  enumerize :profile_type, in: { admin: 0, user: 1 }
-
   serialize :profiles, Array
+  enumerize :profiles, in: %i[admin cliente], multiple: true
 
   def to_s
     nombre_o_email
@@ -54,16 +54,11 @@ class User < ApplicationRecord
     end
   end
 
-  def profile_names
-    profiles.map { |profile_id| User.profile_types.invert[profile_id.to_i] }
-            .compact.map { |type| I18n.t("user_type.#{type}") }.join(', ')
-  end
-
   def admin?
-    profiles.include? User.profile_type.admin.value.to_s
+    profiles.admin?
   end
 
-  def user?
-    profiles.include? User.profile_type.user.value.to_s
+  def active_for_authentication?
+    super && activo?
   end
 end

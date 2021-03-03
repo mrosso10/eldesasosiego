@@ -12,10 +12,10 @@ DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata))
 ['mrosso10@gmail.com','luciano.santobuono@gmail.com',
  'lucasrossi90@gmail.com','ignacio.coluccio@gmail.com'].each do |mail|
   unless User.exists?(email: mail)
-    User.create(email: mail, password: 'admin123', password_confirmation: 'admin123', profiles: ["0", "1"],
+    User.create(email: mail, password: 'admin123', password_confirmation: 'admin123', profiles: [:admin],
                 desarrollador: true, confirmed_at: Time.now)
   end
 end
 
-FactoryBot.create_list(:admin_post_category, 10)
-FactoryBot.create_list(:admin_post, 50, :post_category_existente)
+FactoryBot.create_list(:post_category, 10)
+FactoryBot.create_list(:post, 50, :post_category_existente)

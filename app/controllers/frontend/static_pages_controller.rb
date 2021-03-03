@@ -14,27 +14,5 @@ module Frontend
     def home
       @title = 'Home'
     end
-
-    def blog
-      @post = Admin::Post.activos.last
-      @title = @post.titulo if @post.present?
-      render_blog
-    end
-
-    def show_post
-      @post = Admin::Post.friendly.find(params[:id])
-      @title = @post.titulo
-      render_blog
-    end
-
-    private
-
-      def render_blog
-        if browser.device.mobile?
-          render 'blog_mobile'
-        else
-          render 'blog'
-        end
-      end
   end
 end

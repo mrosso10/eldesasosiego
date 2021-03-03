@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
-  mount Sidekiq::Web => "/sidekiq" # monitoring console
+  authenticate :user, lambda { |u| u.desarrollador? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   mount PgRails::Engine => '/pg_rails'
   mount PgMantenimiento::Engine => "/pg_mantenimiento"
 
-  scope module: 'frontend' do
-    get 'login_as', to: 'home#login_as'
-    root to: "static_pages#home"
-    resources :contactos
+  root to: "frontend/static_pages#home"
 
+  namespace :frontend, path: '' do
     scope controller: :static_pages do
       get :home
-      get :blog
-      get "/blog/:id", to: "static_pages#show_post"
     end
 
+    resources :contactos
+    resources :posts, path: 'noticias', only: [:index, :show]
   end
 
   devise_for :users, path: "", path_names: { sign_in: "login", sign_out: "logout", sign_up: "register"},
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  post '/tinymce_assets' => 'tinymce_assets#create'
+  get 'login_as', to: 'admin#login_as'
 
+  post '/tinymce_assets' => 'tinymce_assets#create'
 end

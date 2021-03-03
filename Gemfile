@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.1"
+ruby "2.7.2"
 
 gem "active_type"
 gem "autoprefixer-rails"
@@ -12,7 +12,7 @@ gem "pg", ">= 0.18"
 gem "pgcli-rails"
 gem "puma", "~> 3.11"
 gem "rack-canonical-host", "~> 1.0"
-gem "rails", "~> 6.0.0"
+gem "rails", "~> 6.1"
 gem "redis", "~> 4.0"
 
 gem 'sassc-rails'
@@ -35,13 +35,12 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'devise_invitable'
 
-
-gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', tag: 'v2.0.0'
-
+gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', ref: '7230bb4'
+gem "best_in_place", git: "https://github.com/bernat/best_in_place"
 
 # gem 'pg_rails', path: '/proyectos/pg_rails'
-gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: 'c31e38ac9172b545becae6f7f3bcb79c4db76789'
-gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'e0aeae66ad02b0035ee47f1035c8be9046e1cbdb'
+gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: '057e980e2d2e71beef2452028904032b685c2766'
+gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'bb24abd4146900211307c62a4af387e6363e0982'
 
 
 source 'https://rails-assets.org' do
@@ -58,6 +57,16 @@ group :production do
 end
 
 group :development do
+  gem "capistrano", "~> 3.6"
+  gem "capistrano3-puma"
+  gem "capistrano-bundler"
+  gem "capistrano-postgresql", "~> 4.2.0"
+  gem "capistrano-rails", "~> 1.1"
+  gem "capistrano-rails-db"
+  gem "capistrano-rake"
+  gem "capistrano-rbenv", "~> 2.0"
+  gem "capistrano-sidekiq"
+
   gem "amazing_print"
   gem "annotate"
   gem "guard", require: false
@@ -72,12 +81,13 @@ group :development do
   gem "web-console", ">= 3.3.0"
 end
 
+gem "dotenv-rails"
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "byebug"
-  gem "dotenv-rails"
   gem "launchy"
   gem "rubocop", require: false
   gem "rubocop-minitest", require: false
@@ -102,13 +112,14 @@ group :test do
   gem 'simplecov', '~> 0.17.1'
 end
 
-gem 'tinymce-rails'
-#gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
+gem 'tinymce-rails', '~> 4.0'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'carrierwave-magic'
-gem "fog-aws"
+gem "carrierwave-aws"
+
 gem 'friendly_id', '~> 5.2.4'
 gem "recaptcha"
 gem 'browser', '2.0.3'

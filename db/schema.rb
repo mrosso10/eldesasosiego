@@ -14,19 +14,20 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
-  create_table "admin_post_categories", force: :cascade do |t|
+  create_table "post_categories", force: :cascade do |t|
     t.string "nombre"
     t.bigint "creado_por_id"
     t.bigint "actualizado_por_id"
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["actualizado_por_id"], name: "index_admin_post_categories_on_actualizado_por_id"
-    t.index ["creado_por_id"], name: "index_admin_post_categories_on_creado_por_id"
+    t.index ["actualizado_por_id"], name: "index_post_categories_on_actualizado_por_id"
+    t.index ["creado_por_id"], name: "index_post_categories_on_creado_por_id"
   end
 
-  create_table "admin_posts", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "titulo"
     t.boolean "activo"
     t.string "slug"
@@ -37,9 +38,9 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["actualizado_por_id"], name: "index_admin_posts_on_actualizado_por_id"
-    t.index ["creado_por_id"], name: "index_admin_posts_on_creado_por_id"
-    t.index ["post_category_id"], name: "index_admin_posts_on_post_category_id"
+    t.index ["actualizado_por_id"], name: "index_posts_on_actualizado_por_id"
+    t.index ["creado_por_id"], name: "index_posts_on_creado_por_id"
+    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
   end
 
   create_table "audits", force: :cascade do |t|
@@ -104,10 +105,10 @@ ActiveRecord::Schema.define(version: 2020_11_09_203337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "admin_post_categories", "users", column: "actualizado_por_id"
-  add_foreign_key "admin_post_categories", "users", column: "creado_por_id"
-  add_foreign_key "admin_posts", "admin_post_categories", column: "post_category_id"
-  add_foreign_key "admin_posts", "users", column: "actualizado_por_id"
-  add_foreign_key "admin_posts", "users", column: "creado_por_id"
+  add_foreign_key "post_categories", "users", column: "actualizado_por_id"
+  add_foreign_key "post_categories", "users", column: "creado_por_id"
+  add_foreign_key "posts", "post_categories", column: "post_category_id"
+  add_foreign_key "posts", "users", column: "actualizado_por_id"
+  add_foreign_key "posts", "users", column: "creado_por_id"
   add_foreign_key "contactos", "users"
 end

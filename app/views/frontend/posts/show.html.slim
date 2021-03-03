@@ -1,0 +1,5 @@
+.container
+  = link_to 'Volver', frontend_posts_path
+  h1 = @post.titulo
+  .post-content
+    = sanitize @post.contenido.html_safe

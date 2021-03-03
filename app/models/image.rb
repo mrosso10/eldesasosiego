@@ -11,6 +11,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
+# Necesaria para el TinymceAssetsController
 class Image < ApplicationRecord
   mount_uploader :file, ImageUploader
 end

@@ -1,0 +1,4 @@
+- if page.current?
+  = content_tag :a, page, rel: page.rel, class: 'btn btn-pag current'
+- else
+  = link_to page, url, remote: true, rel: page.rel, class: 'btn btn-pag'
