@@ -28,7 +28,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  audited
+  audited except: :remember_created_at
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :async, :registerable, :confirmable,
@@ -55,5 +56,9 @@ class User < ApplicationRecord
 
   def admin?
     profiles.admin?
+  end
+
+  def active_for_authentication?
+    super && activo?
   end
 end

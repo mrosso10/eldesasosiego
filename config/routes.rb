@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  mount Sidekiq::Web => "/sidekiq" # monitoring console
+  authenticate :user, lambda { |u| u.desarrollador? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   mount PgRails::Engine => '/pg_rails'
   mount PgMantenimiento::Engine => "/pg_mantenimiento"
 
