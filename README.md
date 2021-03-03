@@ -30,7 +30,8 @@ Para crear un nuevo proyecto ejecutar el script:
 5. git remote add origin <git_url>
 6. git push origin master
 7. Configurar circle y codeclimate
-8. Agregar badges al README.md
+8. Copiar `CC_TEST_REPORTER_ID` al .circleci/config.yml
+9. Agregar badges al README.md
 
 ## Development
 
