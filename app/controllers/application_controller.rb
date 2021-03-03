@@ -11,14 +11,6 @@ class ApplicationController < PgRails::ApplicationController
 
   protected
 
-    def default_url_options(options = {})
-      if Rails.env.production?
-        options.merge(protocol: 'https')
-      else
-        options
-      end
-    end
-
     def desarrollador?
       current_user.present? && current_user.desarrollador?
     end
