@@ -15,16 +15,7 @@ module Admin
     def index
       @post_categories = filtros_y_policy [:nombre]
 
-      respond_to do |format|
-        format.json { render json: @post_categories }
-        format.js { render_smart_listing }
-        format.html { render_smart_listing }
-        format.xlsx do
-          render xlsx: 'download',
-                 filename: "#{PostCategory.nombre_plural.gsub(' ', '-').downcase}"\
-                           "-#{Date.today}.xlsx"
-        end
-      end
+      render_collection(@post_categories)
     end
 
     def show
@@ -45,33 +36,11 @@ module Admin
     end
 
     def create
-      respond_to do |format|
-        if @post_category.save
-          format.html do
-            redirect_to [:admin, @post_category],
-                        notice: "#{PostCategory.nombre_singular} creadx."
-          end
-          format.json { render json: @post_category.decorate }
-        else
-          format.html { render :new }
-          format.json { render json: @post_category.errors.full_messages }
-        end
-      end
+      insertar_y_responder(@post_category)
     end
 
     def update
-      respond_to do |format|
-        if @post_category.save
-          format.html do
-            redirect_to [:admin, @post_category],
-                        notice: "#{PostCategory.nombre_singular} actualizadx."
-          end
-          format.json { render json: @post_category.decorate }
-        else
-          format.html { render :edit }
-          format.json { render json: @post_category.errors }
-        end
-      end
+      updatear_y_responder(@post_category)
     end
 
     def destroy
