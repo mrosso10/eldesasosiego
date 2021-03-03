@@ -17,7 +17,7 @@ module Frontend
       @contacto.ip = request.remote_ip
       @contacto.user = current_user
 
-      MessageMailer.message_me(@message).deliver_later if @contacto.errors.empty? && @contacto.save
+      ContactoMailer.contacto(@message).deliver_later if @contacto.errors.empty? && @contacto.save
     rescue StandardError => e
       Rollbar.error(e)
       render js: "PgRails.error_toast('#{@mensaje_error}');"

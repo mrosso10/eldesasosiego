@@ -69,17 +69,30 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Production email config
-  config.action_mailer.delivery_method = :postmark
-  config.action_mailer.postmark_settings = {
-    api_token: ENV['POSTMARK_API_KEY'],
-    http_ssl_version: :TLSv1_2 # remove this workaround once Postmark supports TLS 1.3
+  # config.action_mailer.delivery_method = :postmark
+  # config.action_mailer.postmark_settings = {
+  #   api_token: ENV['POSTMARK_API_KEY'],
+  #   http_ssl_version: :TLSv1_2 # remove this workaround once Postmark supports TLS 1.3
+  # }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => ENV["SMTP_HOST"],
+    :port => ENV["SMTP_PORT"],
+    :user_name => ENV["SMTP_USERNAME"], #Your SMTP user
+    :password => ENV["SMTP_PASSWORD"], #Your SMTP password
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :ssl => ENV["SMTP_USE_SSL"] == 'true',
+    :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
   }
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {
-    host: 'template.programando.com.ar',
+    host: ENV["DEFAULT_URL_HOST"],
     protocol: 'https'
   }
-  config.action_mailer.asset_host = 'https://template.programando.com.ar'
+  config.action_mailer.asset_host = "https://#{ENV["DEFAULT_URL_HOST"]}"
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
