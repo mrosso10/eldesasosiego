@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = {
     api_token: ENV['POSTMARK_API_KEY'],
-    http_ssl_version: :TLSv1_2 # TODO: remove this workaround once Postmark supports TLS 1.3
+    http_ssl_version: :TLSv1_2 # remove this workaround once Postmark supports TLS 1.3
   }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {
