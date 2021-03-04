@@ -31,10 +31,11 @@ git remote remove origin
 
 mv README_for_cloned.md README.md
 
-find app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/pg_template/$NOMBRE_PROYECTO/g"
-find app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/PG_TEMPLATE/$NOMBRE_PROYECTO/g"
-find app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/template_pg/$NOMBRE_PROYECTO/g"
+find .circleci app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/pg_template/$NOMBRE_PROYECTO/g"
+find .circleci app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/PG_TEMPLATE/$NOMBRE_PROYECTO/g"
+find .circleci app db config lib package.json .env README.md -type f -print0 | xargs -0 sed -i "s/template_pg/$NOMBRE_PROYECTO/g"
 sed -i "s/CC_TEST_REPORTER_ID:.*/CC_TEST_REPORTER_ID: 'TODO: copiar código'/g" .circleci/config.yml
+rm bin/crear_proyecto.sh
 
 
 prename "s/pg_template/$NOMBRE_PROYECTO/" *
