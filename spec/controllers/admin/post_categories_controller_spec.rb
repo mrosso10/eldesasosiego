@@ -142,7 +142,7 @@ RSpec.describe Admin::PostCategoriesController do
       post_category = create(:post_category)
       expect do
         delete :destroy, params: { id: post_category.to_param }, session: valid_session
-      end.to change(PostCategory.without_deleted, :count).by(-1)
+      end.to change(PostCategory.kept, :count).by(-1)
     end
 
     it 'redirects to the post_categories list' do

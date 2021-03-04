@@ -2,12 +2,12 @@
 
 # == Schema Information
 #
-# Table name: admin_posts
+# Table name: posts
 #
 #  id                 :bigint           not null, primary key
 #  activo             :boolean
 #  contenido          :text
-#  deleted_at         :datetime
+#  discarded_at       :datetime
 #  slug               :string
 #  titulo             :string
 #  created_at         :datetime         not null
@@ -18,15 +18,15 @@
 #
 # Indexes
 #
-#  index_admin_posts_on_actualizado_por_id  (actualizado_por_id)
-#  index_admin_posts_on_creado_por_id       (creado_por_id)
-#  index_admin_posts_on_post_category_id    (post_category_id)
+#  index_posts_on_actualizado_por_id  (actualizado_por_id)
+#  index_posts_on_creado_por_id       (creado_por_id)
+#  index_posts_on_post_category_id    (post_category_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (actualizado_por_id => users.id)
 #  fk_rails_...  (creado_por_id => users.id)
-#  fk_rails_...  (post_category_id => admin_post_categories.id)
+#  fk_rails_...  (post_category_id => post_categories.id)
 #
 
 FactoryBot.define do

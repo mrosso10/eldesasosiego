@@ -32,9 +32,8 @@
         th = I18n.t(:updated_at)
         td = dmy_time @post.updated_at
       tr
-        th = t(:deleted_at)
-        td = dmy_time @post.deleted_at
-
+        th = t(:discarded_at)
+        td = dmy_time @post.discarded_at
 
 .card
   .card-header

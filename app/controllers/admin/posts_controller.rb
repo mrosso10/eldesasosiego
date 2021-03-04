@@ -15,7 +15,7 @@ module Admin
     def index
       @posts = filtros_y_policy %i[titulo contenido post_category]
 
-      render_collection(@posts)
+      pg_respond_index(@posts)
     end
 
     def show
@@ -36,15 +36,15 @@ module Admin
     end
 
     def create
-      insertar_y_responder(@post)
+      pg_respond_create(@post)
     end
 
     def update
-      updatear_y_responder(@post)
+      pg_respond_update(@post)
     end
 
     def destroy
-      destroy_and_respond(@post, admin_posts_url)
+      pg_respond_destroy(@post, admin_posts_url)
     end
 
     private

@@ -172,7 +172,7 @@ RSpec.describe Admin::PostsController, type: :controller do
       post = create(:post)
       expect do
         delete :destroy, params: { id: post.id }, session: valid_session
-      end.to change(Post.without_deleted, :count).by(-1)
+      end.to change(Post.kept, :count).by(-1)
     end
 
     it 'redirects to the posts list' do
