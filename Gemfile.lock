@@ -41,8 +41,8 @@ GIT
 
 GIT
   remote: https://github.com/programandoarg/pg_rails.git
-  revision: b9290b4331be71ea2fec58747f135824a991f5cd
-  ref: b9290b4331be71ea2fec58747f135824a991f5cd
+  revision: 9c79f2a7c2cbdd09b9d2664ab4d4b59437334e83
+  ref: 9c79f2a7c2cbdd09b9d2664ab4d4b59437334e83
   specs:
     pg_rails (0.1.4)
       audited (~> 4.7)
