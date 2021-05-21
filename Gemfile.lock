@@ -275,6 +275,7 @@ GEM
     discard (1.2.0)
       activerecord (>= 4.2, < 7)
     docile (1.3.2)
+    docsplit (0.7.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
@@ -689,6 +690,7 @@ DEPENDENCIES
   devise-i18n-views
   devise_invitable
   discard
+  docsplit
   dotenv-rails
   factory_bot_rails
   faker

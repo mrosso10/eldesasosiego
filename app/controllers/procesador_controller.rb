@@ -1,0 +1,2 @@
+class ProcesadorController < ApplicationController
+end

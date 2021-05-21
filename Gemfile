@@ -130,3 +130,5 @@ gem 'rollbar'
 
 # Desasosiego
 gem 'twitter'
+
+gem 'docsplit'
