@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_235619) do
+ActiveRecord::Schema.define(version: 2021_05_28_173038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2021_03_03_235619) do
     t.index ["created_at"], name: "index_audits_on_created_at"
     t.index ["request_uuid"], name: "index_audits_on_request_uuid"
     t.index ["user_id", "user_type"], name: "user_index"
+  end
+
+  create_table "candidatos", force: :cascade do |t|
+    t.string "texto"
+    t.string "tipo_query"
+    t.integer "longanismo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -82,6 +90,12 @@ ActiveRecord::Schema.define(version: 2021_03_03_235619) do
     t.index ["actualizado_por_id"], name: "index_posts_on_actualizado_por_id"
     t.index ["creado_por_id"], name: "index_posts_on_creado_por_id"
     t.index ["post_category_id"], name: "index_posts_on_post_category_id"
+  end
+
+  create_table "tuits", force: :cascade do |t|
+    t.string "texto"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
