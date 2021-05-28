@@ -10,6 +10,8 @@ module Navbar
     helper_method :all_children_hidden?
   end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Layout/LineLength
   def navbar_content
     [
       { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
@@ -26,6 +28,8 @@ module Navbar
       { title: 'Ir al sitio web', path: '/', icon: 'fa fa-globe', label_id: 'label_2' }
     ]
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Layout/LineLength
 
   def all_children_hidden?(entry)
     entry[:children].all? { |child| child[:show] == false }

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata))
+DatabaseCleaner.clean_with(:truncation,except: %w(ar_internal_metadata users))
 
 
 ['mrosso10@gmail.com','luciano.santobuono@gmail.com',
