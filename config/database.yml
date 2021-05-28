@@ -2,8 +2,8 @@
 default: &default
   host: localhost
   port: 5432
-  username: template_pg
-  password: template_pg
+  username: eldesasosiego
+  password: eldesasosiego
   adapter: postgresql
   encoding: unicode
   min_messages: WARNING
@@ -13,11 +13,11 @@ default: &default
 
 development:
   <<: *default
-  database: template_pg_development
+  database: eldesasosiego_development
 
 test:
   <<: *default
-  database: template_pg_test
+  database: eldesasosiego_test
 
 production:
   <<: *default

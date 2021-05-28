@@ -1,8 +1,6 @@
-[![CircleCI](https://circleci.com/gh/programandoarg/pg_template.svg?style=shield&circle-token=742874aa9019950a5755d89184e6eabe0e6d1855)](https://circleci.com/gh/programandoarg/pg_template)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c5410ac4a17c846a121e/maintainability)](https://codeclimate.com/repos/5fadf053541ba101b500a47b/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c5410ac4a17c846a121e/test_coverage)](https://codeclimate.com/repos/5fadf053541ba101b500a47b/test_coverage)
+TODO: agregar badges
 
-# pg_template
+# eldesasosiego
 
 Plantilla para crear una app Rails.
 
@@ -19,20 +17,6 @@ This project requires:
 * PostgreSQL must be installed and accepting connections
 * [Redis][] must be installed and running on localhost with the default port
 
-## Uso
-
-Para crear un nuevo proyecto ejecutar el script:
-
-1. Pararse en el root de pg_template
-2. Chequear que estamos en el branch master actualizado y sin cambios locales
-3. Ejecutar: `bin/crear_proyecto.sh <nombre_proyecto>`
-4. `cd ../<nombre_proyecto>`
-5. git remote add origin <git_url>
-6. git push origin master
-7. Configurar circle y codeclimate
-8. Copiar `CC_TEST_REPORTER_ID` al .circleci/config.yml
-9. Agregar badges al README.md
-
 ## Development
 
 ### Setup
@@ -45,7 +29,7 @@ sudo -u postgres psql template1
 ```
 2. Crear el rol
 ```
-create role template_pg password 'template_pg' login superuser;
+create role eldesasosiego password 'eldesasosiego' login superuser;
 ```
 
 3. Ejecutar el script `bin/setup`. This script will:

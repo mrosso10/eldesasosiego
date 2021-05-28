@@ -9,12 +9,12 @@ executors:
           PGUSER: postgres
           PGPASS: postgres
           RAILS_ENV: test
-          CC_TEST_REPORTER_ID: 67bf00025845cb6ff88145f63453e43a7296708f3f3c33288f3ea47cb74888c0
+          CC_TEST_REPORTER_ID: 'TODO: copiar código'
       - image: circleci/postgres:12-alpine
         environment:
-          POSTGRES_USER: template_pg
-          POSTGRES_DB: template_pg_test
-          POSTGRES_PASSWORD: template_pg
+          POSTGRES_USER: eldesasosiego
+          POSTGRES_DB: eldesasosiego_test
+          POSTGRES_PASSWORD: eldesasosiego
       - image: circleci/redis
 commands:
   bundle_install:

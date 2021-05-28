@@ -12,8 +12,8 @@ set :ssh_options,
 # forward_agent: false,
 # auth_methods: %w(password)
 
-set :application, 'pg_template'
-set :repo_url, 'git@github.com:programandoarg/pg_template.git'
+set :application, 'eldesasosiego'
+set :repo_url, 'git@github.com:programandoarg/eldesasosiego.git'
 set :branch, 'master'
 # set :repo_url,        'git@example.com:username/appname.git'
 # set :application,     'appname'

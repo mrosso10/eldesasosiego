@@ -39,9 +39,9 @@ module ApplicationHelper
 
   def page_title
     if @title.present?
-      "#{@title} - PG_TEMPLATE"
+      "#{@title} - eldesasosiego"
     else
-      'PG_TEMPLATE'
+      'eldesasosiego'
     end
   end
 
