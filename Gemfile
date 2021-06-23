@@ -10,7 +10,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "coffee-rails"
 gem "pg", ">= 0.18"
 gem "pgcli-rails"
-gem "puma", "~> 3.11"
+gem "puma", ">= 4.3.8"
 gem "rack-canonical-host", "~> 1.0"
 gem "rails", "~> 6.1"
 gem "redis", "~> 4.0"
@@ -59,7 +59,7 @@ end
 
 group :development do
   gem "capistrano", "~> 3.6"
-  gem "capistrano3-puma"
+  gem "capistrano3-puma", "~> 4.0"
   gem "capistrano-bundler"
   gem "capistrano-postgresql", "~> 4.2.0"
   gem "capistrano-rails", "~> 1.1"
