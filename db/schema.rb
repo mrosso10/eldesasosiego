@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_151553) do
+ActiveRecord::Schema.define(version: 2021_06_23_231103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_05_29_151553) do
     t.integer "longanismo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "pagina_id"
+    t.index ["pagina_id"], name: "index_candidatos_on_pagina_id"
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -126,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_05_29_151553) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidatos", "paginas"
   add_foreign_key "contactos", "users"
   add_foreign_key "post_categories", "users", column: "actualizado_por_id"
   add_foreign_key "post_categories", "users", column: "creado_por_id"

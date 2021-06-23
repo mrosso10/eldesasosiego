@@ -13,4 +13,6 @@
 
 class Pagina < ApplicationRecord
   audited
+
+  has_many :candidatos
 end
