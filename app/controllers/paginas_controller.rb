@@ -52,7 +52,7 @@ class PaginasController < AdminController
       smart_listing(:paginas, @paginas, 'paginas/listing',
                     sort_attributes: [
                       [:texto, 'texto'],
-                      [:numero, 'numero'],
+                      [:numero, 'numero']
                     ])
     end
 

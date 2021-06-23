@@ -15,7 +15,5 @@ FactoryBot.define do
   factory :pagina do
     texto { Faker::Lorem.sentence }
     numero { 1 }
-
-    
   end
 end

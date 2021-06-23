@@ -14,5 +14,13 @@
 class Pagina < ApplicationRecord
   audited
 
+  LONGITUD_MINIMA = 5
+
   has_many :candidatos
+
+  def generar_candidatos
+    texto.split("\n").select { |pag| pag.length > LONGITUD_MINIMA }.each do |oracion|
+      Candidato.create!(texto: oracion, pagina: self)
+    end
+  end
 end

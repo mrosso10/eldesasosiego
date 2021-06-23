@@ -45,7 +45,6 @@ RSpec.describe PaginasController, type: :controller do
     attributes_for(:pagina)
   end
 
-
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # PaginasController. Be sure to keep this updated too.
@@ -101,7 +100,6 @@ RSpec.describe PaginasController, type: :controller do
         expect(response).to redirect_to(Pagina.last)
       end
     end
-
   end
 
   describe 'PUT #update' do
@@ -112,31 +110,30 @@ RSpec.describe PaginasController, type: :controller do
 
       it 'updates the requested pagina' do
         pagina = create(:pagina)
-        put :update, params: { id: pagina.to_param, pagina: new_attributes }, session: valid_session
+        put :update, params: { id: pagina.to_param, pagina: new_attributes }
         pagina.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
       it 'redirects to the pagina' do
         pagina = create(:pagina)
-        put :update, params: { id: pagina.to_param, pagina: valid_attributes }, session: valid_session
+        put :update, params: { id: pagina.to_param, pagina: valid_attributes }
         expect(response).to redirect_to(pagina)
       end
     end
-
   end
 
   describe 'DELETE #destroy' do
     it 'destroys the requested pagina' do
       pagina = create(:pagina)
       expect do
-        delete :destroy, params: { id: pagina.to_param }, session: valid_session
+        delete :destroy, params: { id: pagina.to_param }
       end.to change(Pagina, :count).by(-1)
     end
 
     it 'redirects to the paginas list' do
       pagina = create(:pagina)
-      delete :destroy, params: { id: pagina.to_param }, session: valid_session
+      delete :destroy, params: { id: pagina.to_param }
       expect(response).to redirect_to(paginas_url)
     end
   end
