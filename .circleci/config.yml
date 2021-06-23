@@ -9,7 +9,7 @@ executors:
           PGUSER: postgres
           PGPASS: postgres
           RAILS_ENV: test
-          CC_TEST_REPORTER_ID: 'TODO: copiar código'
+          CC_TEST_REPORTER_ID: d5d81bbd5a96c3b2a3d06e46c6f6e786eb9255938f77f25f9fb44ba9cf383e39
       - image: circleci/postgres:12-alpine
         environment:
           POSTGRES_USER: eldesasosiego
