@@ -1,4 +1,6 @@
-TODO: agregar badges
+[![CircleCI](https://circleci.com/gh/mrosso10/eldesasosiego.svg?style=shield&circle-token=3882c65dbdc9cb8d3110e8fb49df8b819cbce0f1)](https://circleci.com/gh/mrosso10/eldesasosiego)
+[![Maintainability](https://api.codeclimate.com/v1/badges/909ca82fb8a0943572be/maintainability)](https://codeclimate.com/github/mrosso10/eldesasosiego/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/909ca82fb8a0943572be/test_coverage)](https://codeclimate.com/github/mrosso10/eldesasosiego/test_coverage)
 
 # eldesasosiego
 
