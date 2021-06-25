@@ -1,0 +1,21 @@
+- content_for :title do
+  = @pagina.to_s
+- content_for :actions do
+  = @pagina.destroy_link
+  = @pagina.edit_link
+
+.card.d-inline-block
+  .card-body
+    table.table.table-borderless.table-sm.w-auto.mb-0
+      tr
+        th = @clase_modelo.human_attribute_name(:texto)
+        td = @pagina.texto
+      tr
+        th = @clase_modelo.human_attribute_name(:numero)
+        td = @pagina.numero
+      tr
+        th = I18n.t(:created_at)
+        td = dmy_time @pagina.created_at
+      tr
+        th = I18n.t(:updated_at)
+        td = dmy_time @pagina.updated_at

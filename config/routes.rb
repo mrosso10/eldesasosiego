@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :paginas
   authenticate :user, lambda { |u| u.desarrollador? } do
     mount Sidekiq::Web => '/sidekiq'
   end

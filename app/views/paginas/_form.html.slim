@@ -1,0 +1,9 @@
+= pg_form_for(@pagina) do |f|
+  = f.mensajes_de_error
+
+  .form-inputs
+    = f.input :texto
+    = f.input :numero
+
+  .form-actions
+    = f.button :submit
