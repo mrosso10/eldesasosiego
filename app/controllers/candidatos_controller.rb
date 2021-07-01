@@ -50,7 +50,7 @@ class CandidatosController < ApplicationController
                     sort_attributes: [
                       [:texto, 'texto'],
                       [:pagina, 'pagina'],
-                      [:longanismo, 'longanismo'],
+                      [:longanismo, 'longanismo']
                     ])
     end
 

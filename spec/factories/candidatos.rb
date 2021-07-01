@@ -12,6 +12,5 @@ FactoryBot.define do
       pagina { nil }
       pagina_id { Pagina.all.pluck(:id).sample }
     end
-
   end
 end

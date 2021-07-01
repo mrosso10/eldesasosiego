@@ -35,7 +35,6 @@ RSpec.describe CandidatosController, type: :controller do
     attributes_for(:candidato)
   end
 
-
   let(:user) { create :user, :admin }
 
   before do
@@ -46,8 +45,6 @@ RSpec.describe CandidatosController, type: :controller do
     subject do
       get :index, params: {}
     end
-
-    let!(:candidato) { create :candidato }
 
     it 'returns a success response' do
       subject
@@ -91,7 +88,6 @@ RSpec.describe CandidatosController, type: :controller do
         expect(response).to redirect_to(Candidato.last)
       end
     end
-
   end
 
   describe 'PUT #update' do
@@ -104,7 +100,7 @@ RSpec.describe CandidatosController, type: :controller do
         candidato = create(:candidato)
         put :update, params: { id: candidato.to_param, candidato: new_attributes }
         candidato.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
       it 'redirects to the candidato' do
@@ -113,7 +109,6 @@ RSpec.describe CandidatosController, type: :controller do
         expect(response).to redirect_to(candidato)
       end
     end
-
   end
 
   describe 'DELETE #destroy' do
