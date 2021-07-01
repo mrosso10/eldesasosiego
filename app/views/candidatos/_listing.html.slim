@@ -1,0 +1,25 @@
+- unless smart_listing.empty?
+  .table-responsive
+    table.table.table-striped.table-sm.listado
+      thead
+        tr
+          th = encabezado smart_listing, :texto, ordenable: true
+          th = encabezado smart_listing, :pagina, ordenable: true
+          th = encabezado smart_listing, :longanismo, ordenable: true
+          th
+      tbody
+        - smart_listing.collection.each do |candidato|
+          - candidato = candidato.decorate
+          tr data-id="#{candidato.id}"
+            td = candidato.texto
+            td = candidato.pagina
+            td = candidato.longanismo
+            td.text-nowrap
+              = candidato.show_link
+              = candidato.edit_link
+              = candidato.destroy_link
+- else
+  p No hay #{@clase_modelo.nombre_plural.downcase} que mostrar
+
+= smart_listing.paginate
+= smart_listing.pagination_per_page_links

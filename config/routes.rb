@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :paginas
+  resources :candidatos
 
   get 'login_as', to: 'admin#login_as'
 

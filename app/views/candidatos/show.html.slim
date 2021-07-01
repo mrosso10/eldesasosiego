@@ -1,0 +1,24 @@
+- content_for :title do
+  = @candidato.to_s
+- content_for :actions do
+  = @candidato.destroy_link
+  = @candidato.edit_link
+
+.card.d-inline-block
+  .card-body
+    table.table.table-borderless.table-sm.w-auto.mb-0
+      tr
+        th = @clase_modelo.human_attribute_name(:texto)
+        td = @candidato.texto
+      tr
+        th = @clase_modelo.human_attribute_name(:pagina)
+        td = @candidato.pagina
+      tr
+        th = @clase_modelo.human_attribute_name(:longanismo)
+        td = @candidato.longanismo
+      tr
+        th = I18n.t(:created_at)
+        td = dmy_time @candidato.created_at
+      tr
+        th = I18n.t(:updated_at)
+        td = dmy_time @candidato.updated_at

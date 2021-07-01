@@ -13,6 +13,7 @@ module Navbar
   def navbar_content
     [
       { title: 'Páginas', path: main_app.paginas_path },
+      { title: 'Candidatos', path: main_app.candidatos_path },
       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
         { title: 'Usuarios', path: main_app.admin_users_path,
           show: policy(Admin::UsersController).index? },
