@@ -35,11 +35,11 @@ class PaginasController < AdminController
   end
 
   def create
-    pg_respond_create(@pagina)
+    pg_respond_create
   end
 
   def update
-    pg_respond_update(@pagina)
+    pg_respond_update
   end
 
   def destroy
