@@ -10,6 +10,9 @@ es:
         post_category_id: Categoría
         post_category: Categoría
     models:
+      pagina:
+        one: Página
+        other: Páginas
       post:
         one: Posteo
         other: Posteos

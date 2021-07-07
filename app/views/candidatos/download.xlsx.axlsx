@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+wb.add_worksheet(name: 'Candidato') do |sheet|
+  sheet.add_row [
+    @clase_modelo.human_attribute_name(:texto),
+    @clase_modelo.human_attribute_name(:pagina),
+    @clase_modelo.human_attribute_name(:longanismo)
+  ]
+
+  @candidatos.each do |candidato|
+    sheet.add_row [
+      candidato.texto,
+      candidato.pagina,
+      candidato.longanismo
+    ]
+  end
+end

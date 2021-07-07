@@ -23,4 +23,8 @@ class Pagina < ApplicationRecord
       Candidato.create!(texto: oracion, pagina: self)
     end
   end
+
+  def to_s
+    "Pág. #{numero}"
+  end
 end

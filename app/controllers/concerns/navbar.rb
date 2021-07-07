@@ -12,11 +12,8 @@ module Navbar
 
   def navbar_content
     [
-      { title: 'Blog', icon: 'fa fa-blog', label_id: 'label-1', children: [
-        { title: 'Categorías', path: main_app.admin_post_categories_path,
-          show: policy(PostCategory).index? },
-        { title: 'Posteos', path: main_app.admin_posts_path, show: policy(Post).index? }
-      ] },
+      { title: 'Páginas', path: main_app.paginas_path },
+      { title: 'Candidatos', path: main_app.candidatos_path },
       { title: 'Admin', icon: 'fa fa-cogs', label_id: 'label-2', children: [
         { title: 'Usuarios', path: main_app.admin_users_path,
           show: policy(Admin::UsersController).index? },

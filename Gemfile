@@ -39,7 +39,7 @@ gem 'smart_listing', git: 'https://github.com/mrosso10/smart_listing.git', ref: 
 gem "best_in_place", git: "https://github.com/bernat/best_in_place"
 
 # gem 'pg_rails', path: '/proyectos/pg_rails'
-gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: '9c79f2a7c2cbdd09b9d2664ab4d4b59437334e83'
+gem 'pg_rails', git: 'https://github.com/programandoarg/pg_rails.git', ref: '0eec9ab115823a77777f7920430504111f307f95'
 gem 'pg_mantenimiento', git: 'https://github.com/programandoarg/pg_mantenimiento.git', ref: 'bb24abd4146900211307c62a4af387e6363e0982'
 
 gem 'discard'

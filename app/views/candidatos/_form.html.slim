@@ -1,0 +1,10 @@
+= pg_form_for(@candidato) do |f|
+  = f.mensajes_de_error
+
+  .form-inputs
+    = f.input :texto
+    = f.association :pagina
+    = f.input :longanismo
+
+  .form-actions
+    = f.button :submit
