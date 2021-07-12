@@ -12,7 +12,7 @@
         td = @candidato.texto
       tr
         th = @clase_modelo.human_attribute_name(:pagina)
-        td = @candidato.pagina
+        td = mostrar_con_link @candidato.pagina
       tr
         th = @clase_modelo.human_attribute_name(:longanismo)
         td = @candidato.longanismo
