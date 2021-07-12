@@ -7,15 +7,28 @@
 .card.d-inline-block
   .card-body
     table.table.table-borderless.table-sm.w-auto.mb-0
-      tr
+      / tr
         th = @clase_modelo.human_attribute_name(:texto)
         td = @pagina.texto
-      tr
+      / tr
         th = @clase_modelo.human_attribute_name(:numero)
         td = @pagina.numero
-      tr
+      / tr
         th = I18n.t(:created_at)
         td = dmy_time @pagina.created_at
-      tr
+      / tr
         th = I18n.t(:updated_at)
         td = dmy_time @pagina.updated_at
+    h4 Candidatos
+    table.table.listado
+      tbody
+        - @pagina.candidatos.order(:id).each do |candidato|
+          tr
+            td = candidato.texto
+            td = candidato.decorate.show_link
+
+    br
+    br
+    h4 Texto original
+    textarea.form-control rows="20" disabled="true"
+      = @pagina.texto
