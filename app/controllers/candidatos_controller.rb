@@ -43,6 +43,10 @@ class CandidatosController < ApplicationController
     pg_respond_destroy(@candidato, candidatos_url)
   end
 
+  def tuiteable
+    @candidato = Candidato.find(params[:id])
+  end
+
   private
 
     def render_smart_listing

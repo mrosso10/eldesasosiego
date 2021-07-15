@@ -8,6 +8,7 @@
 #  longanismo :integer
 #  texto      :string
 #  tipo_query :string
+#  tuiteable  :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  pagina_id  :bigint

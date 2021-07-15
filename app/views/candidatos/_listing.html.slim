@@ -6,6 +6,7 @@
           th = encabezado smart_listing, :texto, ordenable: true
           th = encabezado smart_listing, :pagina, ordenable: true
           th = encabezado smart_listing, :longanismo, ordenable: true
+          th = encabezado smart_listing, :tuiteable, ordenable: true
           th
       tbody
         - smart_listing.collection.each do |candidato|
@@ -14,10 +15,12 @@
             td = candidato.texto
             td = candidato.pagina
             td = candidato.longanismo
+            td = candidato.tuiteable
             td.text-nowrap
               = candidato.show_link
               = candidato.edit_link
               = candidato.destroy_link
+              = candidato.tuiteable
 - else
   p No hay #{@clase_modelo.nombre_plural.downcase} que mostrar
 

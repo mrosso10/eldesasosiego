@@ -20,7 +20,7 @@ class Pagina < ApplicationRecord
 
   def generar_candidatos
     texto.split("\n").select { |pag| pag.length > LONGITUD_MINIMA }.each do |oracion|
-      Candidato.create!(texto: oracion, pagina: self)
+      Candidato.create!(texto: oracion, pagina: self, longanismo: oracion.length, tuiteable: 0)
     end
   end
 
