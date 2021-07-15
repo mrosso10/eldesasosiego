@@ -96,21 +96,6 @@ RSpec.describe CandidatosController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
-    context 'with valid params' do
-      it 'creates a new Candidato' do
-        expect do
-          post :create, params: { candidato: valid_attributes }
-        end.to change(Candidato, :count).by(1)
-      end
-
-      it 'redirects to the created candidato' do
-        post :create, params: { candidato: valid_attributes }
-        expect(response).to redirect_to(Candidato.last)
-      end
-    end
-  end
-
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
@@ -141,11 +126,6 @@ RSpec.describe CandidatosController, type: :controller do
 
     it 'destroys the requested candidato' do
       expect { subject }.to change(Candidato, :count).by(-1)
-    end
-
-    it 'setea el discarded_at' do
-      subject
-      expect(candidato.reload.discarded_at).to be_present
     end
 
     it 'redirects to the candidatos list' do
